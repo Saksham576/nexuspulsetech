@@ -826,7 +826,7 @@
                 <a href="#ledger" class="header-link">Benchmarks</a>
                 <a href="#modeling" class="header-link">Leakage Ledger</a>
                 <a href="#charter" class="header-link">Partnership Terms</a>
-                <a href="mailto:team@nexuspulsetech.com?subject=Practice%20Diagnostic%20Inquiry" class="btn-dispatch">
+                <button type="button" onclick="openModal('audit')" class="btn-dispatch" style="cursor: pointer; font-family: var(--font-display);">
                     Request Clinical Audit →
                 </a>
             </div>
@@ -850,7 +850,7 @@
                     </p>
 
                     <div class="hero-actions-row">
-                        <a href="mailto:team@nexuspulsetech.com?subject=Practice%20Diagnostic%20Request" class="btn-primary-warm">
+                        <button type="button" onclick="openModal('audit')" class="btn-primary-warm" style="cursor: pointer; font-family: var(--font-display);">
                             Request Free 48-Hour Speed Audit →
                         </a>
                         <a href="#modeling" class="hero-link-sec">
@@ -1002,7 +1002,7 @@
                             Potential Recovered Revenue: <br>
                             <strong id="monthlyRecov">$12,375 / month</strong> (<strong id="casesRecov" style="color: var(--ink);">1.6 Cases/mo</strong>)
                         </div>
-                        <a href="mailto:team@nexuspulsetech.com?subject=Leakage%20Remediation%20Audit" class="btn-dispatch" style="width: 100%; justify-content: center; padding: 14px;">
+                        <button type="button" onclick="openModal('checkout')" class="btn-dispatch" style="width: 100%; justify-content: center; padding: 14px; cursor: pointer; font-family: var(--font-display);">
                             Remediate This Leakage →
                         </a>
                     </div>
@@ -1091,9 +1091,9 @@
                 </table>
 
                 <div style="text-align: center;">
-                    <a href="mailto:team@nexuspulsetech.com?subject=Partner%20Onboarding%20Inquiry" class="btn-primary-warm" style="width: 100%; justify-content: center; padding: 14px;">
-                        Initiate Practice Onboarding →
-                    </a>
+                    <button type="button" onclick="openModal('checkout')" class="btn-primary-warm" style="width: 100%; justify-content: center; padding: 16px; cursor: pointer; font-size: 16px; font-family: var(--font-display); letter-spacing: 0.05em;">
+                        Proceed to Secure Checkout ($497 Setup + $397/mo) →
+                    </button>
                 </div>
             </div>
         </section>
@@ -1154,5 +1154,295 @@
         }
         calcSheet();
     </script>
+
+    <!-- Clinical Onboarding & Checkout Modal -->
+    <div id="checkoutModal" class="modal-overlay" style="display: none;" onclick="handleOverlayClick(event)">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <div id="modalTag" class="charter-tag" style="margin-bottom: 6px;">CLINICAL ONBOARDING CHARTER</div>
+                    <h3 id="modalTitle" style="font-family: var(--font-display); font-size: 26px; font-weight: 600; margin: 0 0 6px 0; letter-spacing: -0.01em;">
+                        Initialize Practice Charter
+                    </h3>
+                    <p id="modalSub" style="font-size: 14px; color: var(--ink-secondary); margin: 0;">
+                        Sub-45-second patient triage & calendar synchronization bridge.
+                    </p>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closeModal()" aria-label="Close">✕</button>
+            </div>
+
+            <!-- Pricing Summary Badge (shown for checkout mode) -->
+            <div id="modalPricingBox" class="modal-order-summary">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="font-weight: 600; font-size: 15px;">One-Time Implementation & EHR Bridge</span>
+                    <span style="font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--cypress);">$497.00</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-secondary); padding-bottom: 8px; border-bottom: 1px dashed var(--border-warm);">
+                    <span>Monthly Retainer (Begins Day 30 • Cancel Anytime)</span>
+                    <span style="font-family: var(--font-mono);">$397.00 / mo</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 14px; font-weight: 700;">
+                    <span>Due Today at Deployment:</span>
+                    <span style="font-family: var(--font-mono); font-size: 18px; color: var(--terracotta);">$497.00</span>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="onboardingForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="practiceName">Practice / Clinic Name *</label>
+                        <input type="text" id="practiceName" required placeholder="e.g. Austin Oral Surgeons">
+                    </div>
+                    <div class="form-field">
+                        <label for="leadDoctor">Lead Surgeon / Contact Name *</label>
+                        <input type="text" id="leadDoctor" required placeholder="e.g. Dr. Thomas Cavaretta">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="practiceEmail">Practice / Direct Email *</label>
+                        <input type="email" id="practiceEmail" required placeholder="office@yourpractice.com">
+                    </div>
+                    <div class="form-field">
+                        <label for="practicePhone">Direct Phone (For Triage Bridge Test) *</label>
+                        <input type="tel" id="practicePhone" required placeholder="(512) 555-0199">
+                    </div>
+                </div>
+
+                <div class="form-field" style="margin-bottom: 16px;">
+                    <label for="practiceSite">Practice Website URL</label>
+                    <input type="url" id="practiceSite" placeholder="https://yourpractice.com">
+                </div>
+
+                <div id="ehrField" class="form-field" style="margin-bottom: 20px;">
+                    <label for="ehrSystem">Practice Management / EHR System</label>
+                    <select id="ehrSystem" style="width: 100%; padding: 12px; border: 1px solid var(--border-warm); background: var(--parchment); font-family: var(--font-body); font-size: 14px; border-radius: 4px;">
+                        <option value="Dentrix">Dentrix / Dentrix Ascend</option>
+                        <option value="Eaglesoft">Eaglesoft</option>
+                        <option value="Open Dental">Open Dental</option>
+                        <option value="Curve Dental">Curve Dental</option>
+                        <option value="NexHealth">NexHealth / Web Calendar</option>
+                        <option value="Other">Other / Custom Calendar</option>
+                    </select>
+                </div>
+
+                <div id="paymentMethods" style="margin-bottom: 20px; background: rgba(20, 61, 43, 0.04); border: 1px solid var(--cypress); padding: 14px; border-radius: 6px;">
+                    <div style="font-size: 12px; font-family: var(--font-mono); color: var(--cypress); font-weight: 700; margin-bottom: 6px; letter-spacing: 0.05em;">
+                        🔒 ENCRYPTED CHECKOUT DISPATCH
+                    </div>
+                    <p style="font-size: 13px; color: var(--ink-secondary); margin: 0; line-height: 1.5;">
+                        Clicking below initializes your 48-hour EHR implementation queue and forwards your practice charter directly to our clinical deployment desk.
+                    </p>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-primary-warm" style="width: 100%; justify-content: center; padding: 16px; font-size: 15px; font-family: var(--font-display); cursor: pointer;">
+                    Confirm & Proceed to Onboarding Setup ($497) →
+                </button>
+            </form>
+
+            <!-- Success State -->
+            <div id="successState" style="display: none; text-align: center; padding: 30px 10px;">
+                <div style="width: 56px; height: 56px; background: rgba(20, 61, 43, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 28px; color: var(--cypress);">
+                    ✓
+                </div>
+                <h4 style="font-family: var(--font-display); font-size: 24px; margin: 0 0 10px 0;">
+                    Charter Successfully Initialized
+                </h4>
+                <p style="font-size: 14px; color: var(--ink-secondary); line-height: 1.6; max-width: 440px; margin: 0 auto 16px auto;">
+                    We have logged your practice intake. Reference ID: <strong id="refId" style="font-family: var(--font-mono); color: var(--obsidian);">NP-2026-0814</strong>.<br>
+                    Our clinical integration engineer will reach out to your direct contact email within 2 business hours with your calendar bridge setup package.
+                </p>
+                <div style="background: var(--parchment); border: 1px solid var(--border-warm); padding: 12px; border-radius: 6px; font-size: 13px; font-family: var(--font-mono);">
+                    Official Dispatch: team@nexuspulsetech.com
+                </div>
+                <button type="button" onclick="closeModal()" class="btn-dispatch" style="margin-top: 20px; cursor: pointer;">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(20, 21, 20, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+        .modal-card {
+            background: var(--parchment);
+            border: 1px solid var(--border-warm);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+            max-width: 580px;
+            width: 100%;
+            border-radius: 8px;
+            padding: 32px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-warm);
+            margin-bottom: 20px;
+        }
+        .modal-close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--ink-secondary);
+            cursor: pointer;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+        .modal-close-btn:hover {
+            color: var(--obsidian);
+        }
+        .modal-order-summary {
+            background: #FFFFFF;
+            border: 1px solid var(--border-warm);
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-field label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ink-secondary);
+        }
+        .form-field input, .form-field select {
+            padding: 12px;
+            border: 1px solid var(--border-warm);
+            background: #FFFFFF;
+            font-family: var(--font-body);
+            font-size: 14px;
+            border-radius: 4px;
+            color: var(--obsidian);
+        }
+        .form-field input:focus, .form-field select:focus {
+            outline: none;
+            border-color: var(--cypress);
+        }
+    </style>
+
+    <script>
+        let currentModalMode = 'checkout';
+
+        function openModal(mode = 'checkout') {
+            currentModalMode = mode;
+            const modal = document.getElementById('checkoutModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalSub = document.getElementById('modalSub');
+            const modalTag = document.getElementById('modalTag');
+            const pricingBox = document.getElementById('modalPricingBox');
+            const ehrField = document.getElementById('ehrField');
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('onboardingForm');
+            const success = document.getElementById('successState');
+
+            form.style.display = 'block';
+            success.style.display = 'none';
+
+            if (mode === 'audit') {
+                modalTag.innerText = 'SPEED-TO-LEAD BENCHMARK';
+                modalTitle.innerText = 'Commission Diagnostic Audit';
+                modalSub.innerText = 'Complimentary 1-page visual intake & responsiveness report for your practice.';
+                pricingBox.style.display = 'none';
+                ehrField.style.display = 'none';
+                document.getElementById('paymentMethods').style.display = 'none';
+                submitBtn.innerText = 'Commission 1-Page Diagnostic Report (Free) →';
+            } else {
+                modalTag.innerText = 'CLINICAL ONBOARDING CHARTER';
+                modalTitle.innerText = 'Initialize Practice Charter';
+                modalSub.innerText = 'Sub-45-second patient triage & calendar synchronization bridge.';
+                pricingBox.style.display = 'block';
+                ehrField.style.display = 'block';
+                document.getElementById('paymentMethods').style.display = 'block';
+                submitBtn.innerText = 'Confirm & Proceed to Onboarding Setup ($497) →';
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('checkoutModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleOverlayClick(e) {
+            if (e.target.id === 'checkoutModal') {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const pName = document.getElementById('practiceName').value;
+            const pDoctor = document.getElementById('leadDoctor').value;
+            const pEmail = document.getElementById('practiceEmail').value;
+            const pPhone = document.getElementById('practicePhone').value;
+
+            // Generate reference code
+            const randomCode = 'NP-2026-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('refId').innerText = randomCode;
+
+            // Save submission to local storage for telemetry
+            const submission = {
+                mode: currentModalMode,
+                practiceName: pName,
+                doctor: pDoctor,
+                email: pEmail,
+                phone: pPhone,
+                website: document.getElementById('practiceSite').value,
+                ehr: document.getElementById('ehrSystem').value,
+                timestamp: new Date().toISOString(),
+                ref: randomCode
+            };
+            try {
+                const logs = JSON.parse(localStorage.getItem('np_intakes') || '[]');
+                logs.push(submission);
+                localStorage.setItem('np_intakes', JSON.stringify(logs));
+            } catch (err) {}
+
+            document.getElementById('onboardingForm').style.display = 'none';
+            document.getElementById('successState').style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>
