@@ -7,34 +7,32 @@
     <meta name="description" content="Autonomous clinical intake architecture and after-hours patient triage for premier dental implant and oral surgery practices.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --paper: #FAF9F5;
+            --paper: #FAF8F5;
             --paper-card: #FFFFFF;
-            --paper-tint: #F3F1EA;
-            --paper-accent: #EAE7DC;
-            --line-subtle: #E2DFD4;
-            --line-strong: #C8C4B7;
-            --line-dark: #1F2421;
+            --paper-tint: #F2EFE9;
+            --paper-accent: #E8E4DA;
+            --line-subtle: #E0DDD2;
+            --line-strong: #C4C0B3;
+            --line-dark: #1A1A18;
             
-            --ink: #181A18;
-            --ink-secondary: #4A4E4A;
-            --ink-muted: #747A74;
+            --ink: #141514;
+            --ink-secondary: #424642;
+            --ink-muted: #6E726E;
             
-            --forest: #1B4332;
-            --forest-light: #2D6A4F;
-            --forest-tint: #E8F0EC;
+            --forest: #143D2B;
+            --forest-light: #235C43;
+            --forest-tint: #E8F2EC;
             
-            --terracotta: #B84227;
-            --terracotta-tint: #FBECE8;
+            --terracotta: #A8361E;
+            --terracotta-tint: #FCECE8;
             
-            --gold: #85581A;
-            --gold-tint: #FAF3E8;
-
-            --font-serif: 'Fraunces', Georgia, serif;
-            --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
+            --font-display: 'Bodoni Moda', 'Didot', Garamond, serif;
+            --font-titling: 'Cinzel', Trajan, 'Times New Roman', serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-code: 'Space Mono', Courier, monospace;
         }
 
         * {
@@ -46,25 +44,25 @@
         body {
             background-color: var(--paper);
             color: var(--ink);
-            font-family: var(--font-sans);
-            line-height: 1.6;
+            font-family: var(--font-body);
+            line-height: 1.62;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        /* Top Gazette Masthead Strip */
+        /* Top Masthead Strip */
         .masthead-strip {
             background: var(--ink);
             color: var(--paper);
-            padding: 8px 24px;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            letter-spacing: 0.08em;
+            padding: 9px 24px;
+            font-family: var(--font-code);
+            font-size: 10.5px;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
         .masthead-inner {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -76,25 +74,26 @@
         .masthead-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .pulse-light {
             width: 6px;
             height: 6px;
-            background: #52B788;
+            background: #4ADE80;
             border-radius: 50%;
+            box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
         }
 
-        /* Broadside Header */
+        /* Broadsheet Header */
         header {
             border-bottom: 2px solid var(--ink);
             background: var(--paper);
-            padding: 24px 0 16px;
+            padding: 26px 0 18px;
         }
 
         .header-inner {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
             display: flex;
@@ -107,40 +106,41 @@
         .brand-block {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
             text-decoration: none;
             color: var(--ink);
         }
 
         .brand-crest {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border: 2px solid var(--ink);
-            background: var(--paper-accent);
+            background: var(--paper-tint);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-serif);
+            font-family: var(--font-titling);
             font-weight: 700;
             font-size: 20px;
-            letter-spacing: -0.05em;
+            letter-spacing: 0.05em;
             color: var(--forest);
         }
 
         .brand-name {
-            font-family: var(--font-serif);
+            font-family: var(--font-titling);
             font-weight: 700;
-            font-size: 24px;
-            letter-spacing: -0.02em;
-            line-height: 1;
+            font-size: 22px;
+            letter-spacing: 0.12em;
+            line-height: 1.1;
             color: var(--ink);
+            text-transform: uppercase;
         }
 
         .brand-sub {
-            font-family: var(--font-mono);
-            font-size: 11px;
+            font-family: var(--font-code);
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.14em;
             color: var(--ink-muted);
             margin-top: 4px;
         }
@@ -152,13 +152,13 @@
         }
 
         .header-link {
-            font-family: var(--font-mono);
+            font-family: var(--font-titling);
             font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.12em;
             color: var(--ink);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.15s;
         }
 
@@ -170,13 +170,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
+            padding: 10px 22px;
             background: var(--forest);
             color: var(--paper);
-            font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.06em;
+            font-family: var(--font-titling);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             text-decoration: none;
             border: 1px solid var(--forest);
@@ -186,32 +186,33 @@
         .btn-dispatch:hover {
             background: var(--ink);
             border-color: var(--ink);
+            transform: translateY(-1px);
         }
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* Broadsheet Hero */
         .broadsheet-hero {
-            padding: 64px 0 56px;
+            padding: 68px 0 60px;
             border-bottom: 1px solid var(--line-subtle);
         }
 
         .edition-tag {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 600;
+            font-family: var(--font-titling);
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             color: var(--terracotta);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         .edition-tag::after {
@@ -224,23 +225,23 @@
         .hero-layout {
             display: grid;
             grid-template-columns: 1.25fr 0.75fr;
-            gap: 56px;
+            gap: 60px;
             align-items: start;
         }
 
-        @media (max-width: 920px) {
+        @media (max-width: 960px) {
             .hero-layout {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 44px;
             }
         }
 
         .lead-headline {
-            font-family: var(--font-serif);
-            font-size: clamp(40px, 5.2vw, 68px);
+            font-family: var(--font-display);
+            font-size: clamp(42px, 5.4vw, 72px);
             font-weight: 600;
-            line-height: 1.04;
-            letter-spacing: -0.03em;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
             color: var(--ink);
             margin-bottom: 28px;
         }
@@ -252,21 +253,21 @@
         }
 
         .lead-abstract {
-            font-size: 19px;
-            line-height: 1.6;
+            font-size: 18px;
+            line-height: 1.65;
             color: var(--ink-secondary);
-            margin-bottom: 36px;
+            margin-bottom: 38px;
             font-weight: 400;
-            max-width: 640px;
+            max-width: 650px;
         }
 
         .lead-abstract::first-letter {
-            font-family: var(--font-serif);
-            font-size: 52px;
+            font-family: var(--font-display);
+            font-size: 64px;
             line-height: 0.8;
             float: left;
-            margin-right: 12px;
-            margin-top: 4px;
+            margin-right: 14px;
+            margin-top: 6px;
             color: var(--forest);
             font-weight: 700;
         }
@@ -274,7 +275,7 @@
         .hero-actions-row {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 22px;
             flex-wrap: wrap;
         }
 
@@ -285,9 +286,11 @@
             background: var(--ink);
             color: var(--paper);
             padding: 14px 28px;
-            font-family: var(--font-sans);
-            font-size: 15px;
-            font-weight: 600;
+            font-family: var(--font-titling);
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             text-decoration: none;
             transition: all 0.2s;
             border: 1px solid var(--ink);
@@ -296,83 +299,87 @@
         .btn-primary-warm:hover {
             background: var(--forest);
             border-color: var(--forest);
+            transform: translateY(-1px);
         }
 
         .hero-link-sec {
-            font-family: var(--font-mono);
-            font-size: 13px;
+            font-family: var(--font-code);
+            font-size: 12.5px;
             color: var(--ink-secondary);
             text-decoration: underline;
             text-underline-offset: 4px;
             font-weight: 500;
+            letter-spacing: 0.02em;
         }
 
         .hero-link-sec:hover {
             color: var(--terracotta);
         }
 
-        /* Right Column: Physical Clinical Case Report */
+        /* Clinical Case Report Plaque */
         .clinical-dossier-box {
             background: var(--paper-card);
             border: 1px solid var(--line-strong);
-            padding: 28px;
-            box-shadow: 4px 6px 0px rgba(24, 26, 24, 0.06);
+            padding: 30px;
+            box-shadow: 4px 6px 0px rgba(20, 21, 20, 0.06);
             position: relative;
         }
 
         .dossier-stamp {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 22px;
+            right: 22px;
             border: 2px dashed var(--terracotta);
             color: var(--terracotta);
-            font-family: var(--font-mono);
-            font-size: 10px;
+            font-family: var(--font-code);
+            font-size: 9.5px;
             font-weight: 700;
             padding: 4px 8px;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             transform: rotate(-3deg);
         }
 
         .dossier-title {
-            font-family: var(--font-serif);
-            font-size: 20px;
+            font-family: var(--font-display);
+            font-size: 22px;
             font-weight: 600;
             margin-bottom: 4px;
             color: var(--ink);
+            letter-spacing: -0.01em;
         }
 
         .dossier-sub {
-            font-family: var(--font-mono);
-            font-size: 11px;
+            font-family: var(--font-code);
+            font-size: 10.5px;
             color: var(--ink-muted);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
+            letter-spacing: 0.1em;
+            margin-bottom: 22px;
+            padding-bottom: 14px;
             border-bottom: 1px solid var(--line-subtle);
         }
 
         .findings-list {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            margin-bottom: 24px;
+            gap: 15px;
+            margin-bottom: 26px;
         }
 
         .finding-item {
             display: flex;
-            gap: 12px;
+            gap: 14px;
             font-size: 13.5px;
             line-height: 1.5;
             color: var(--ink-secondary);
         }
 
         .finding-bullet {
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
             color: var(--forest);
             font-weight: 700;
+            font-size: 12px;
         }
 
         .finding-item strong {
@@ -382,18 +389,19 @@
         .dossier-sim-trigger {
             background: var(--paper-tint);
             border: 1px solid var(--line-subtle);
-            padding: 16px;
-            border-radius: 4px;
+            padding: 18px;
+            border-radius: 2px;
         }
 
         .sim-label {
-            font-family: var(--font-mono);
-            font-size: 11px;
+            font-family: var(--font-code);
+            font-size: 10.5px;
             text-transform: uppercase;
             color: var(--ink-muted);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
+            letter-spacing: 0.08em;
         }
 
         .sim-scenario-btn {
@@ -401,10 +409,11 @@
             background: var(--paper-card);
             border: 1px solid var(--line-strong);
             color: var(--ink);
-            padding: 10px;
-            font-family: var(--font-sans);
-            font-weight: 600;
-            font-size: 13px;
+            padding: 11px 14px;
+            font-family: var(--font-titling);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.06em;
             cursor: pointer;
             margin-bottom: 8px;
             transition: all 0.15s;
@@ -424,50 +433,50 @@
             margin-top: 14px;
             background: #FFFFFF;
             border-left: 3px solid var(--forest);
-            padding: 12px;
-            font-size: 12.5px;
-            line-height: 1.5;
+            padding: 14px;
+            font-size: 12px;
+            line-height: 1.6;
             color: var(--ink);
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
         }
 
-        /* Empirical Benchmark Ledger */
+        /* Benchmark Ledger */
         .ledger-section {
-            padding: 80px 0;
+            padding: 88px 0;
             border-bottom: 1px solid var(--line-subtle);
         }
 
         .section-tag {
-            font-family: var(--font-mono);
+            font-family: var(--font-titling);
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.18em;
             color: var(--forest);
             margin-bottom: 12px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .section-heading {
-            font-family: var(--font-serif);
-            font-size: clamp(30px, 3.8vw, 44px);
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 48px);
             font-weight: 600;
             letter-spacing: -0.02em;
             line-height: 1.15;
-            margin-bottom: 16px;
-            max-width: 760px;
+            margin-bottom: 18px;
+            max-width: 800px;
         }
 
         .section-desc {
             font-size: 17px;
             color: var(--ink-secondary);
-            max-width: 680px;
+            max-width: 700px;
             margin-bottom: 48px;
         }
 
         .broadsheet-table-wrap {
             border: 1px solid var(--line-strong);
             background: var(--paper-card);
-            box-shadow: 4px 6px 0px rgba(24, 26, 24, 0.04);
+            box-shadow: 4px 6px 0px rgba(20, 21, 20, 0.04);
             overflow-x: auto;
         }
 
@@ -481,8 +490,8 @@
         .broadsheet-table th {
             background: var(--paper-tint);
             border-bottom: 2px solid var(--line-strong);
-            padding: 16px 20px;
-            font-family: var(--font-mono);
+            padding: 16px 22px;
+            font-family: var(--font-code);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -490,7 +499,7 @@
         }
 
         .broadsheet-table td {
-            padding: 18px 20px;
+            padding: 18px 22px;
             border-bottom: 1px solid var(--line-subtle);
             color: var(--ink-secondary);
         }
@@ -508,47 +517,47 @@
             display: inline-block;
             background: var(--terracotta-tint);
             color: var(--terracotta);
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
             font-size: 11px;
-            font-weight: 600;
-            padding: 2px 8px;
-            border: 1px solid rgba(184, 66, 39, 0.3);
+            font-weight: 700;
+            padding: 3px 8px;
+            border: 1px solid rgba(168, 54, 30, 0.3);
         }
 
         .badge-status-good {
             display: inline-block;
             background: var(--forest-tint);
             color: var(--forest);
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
             font-size: 11px;
-            font-weight: 600;
-            padding: 2px 8px;
-            border: 1px solid rgba(27, 67, 50, 0.3);
+            font-weight: 700;
+            padding: 3px 8px;
+            border: 1px solid rgba(20, 61, 43, 0.3);
         }
 
         /* Financial Modeling Ledger Sheet */
         .calculator-section {
-            padding: 80px 0;
+            padding: 88px 0;
             border-bottom: 1px solid var(--line-subtle);
         }
 
         .ledger-box {
             background: var(--paper-card);
             border: 2px solid var(--ink);
-            padding: 48px;
+            padding: 50px;
             box-shadow: 6px 8px 0px var(--paper-accent);
         }
 
         @media (max-width: 860px) {
             .ledger-box {
-                padding: 28px;
+                padding: 30px;
             }
         }
 
         .ledger-columns {
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 56px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -560,7 +569,7 @@
         }
 
         .slider-row {
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
         .slider-meta {
@@ -577,9 +586,9 @@
         }
 
         .slider-figure {
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--forest);
         }
 
@@ -595,27 +604,27 @@
         .audit-result-plaque {
             background: var(--paper-tint);
             border: 1px solid var(--line-strong);
-            padding: 36px;
+            padding: 40px 32px;
             text-align: center;
-            border-radius: 2px;
         }
 
         .plaque-header {
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
             font-size: 11px;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--ink-muted);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .loss-headline {
-            font-family: var(--font-serif);
-            font-size: clamp(38px, 4.4vw, 54px);
+            font-family: var(--font-display);
+            font-size: clamp(42px, 4.6vw, 60px);
             font-weight: 700;
             color: var(--terracotta);
             line-height: 1;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .recovered-metric {
@@ -633,67 +642,69 @@
 
         /* 4-Step Technical Protocol */
         .protocol-section {
-            padding: 80px 0;
+            padding: 88px 0;
             border-bottom: 1px solid var(--line-subtle);
         }
 
         .protocol-four-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
         }
 
         .protocol-pane {
             background: var(--paper-card);
             border: 1px solid var(--line-strong);
-            padding: 32px 24px;
+            padding: 34px 26px;
             box-shadow: 2px 4px 0px rgba(0,0,0,0.02);
             position: relative;
         }
 
         .protocol-step-num {
-            font-family: var(--font-serif);
-            font-size: 32px;
+            font-family: var(--font-display);
+            font-size: 36px;
             font-weight: 700;
             color: var(--forest);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             line-height: 1;
         }
 
         .protocol-heading {
-            font-family: var(--font-sans);
-            font-size: 16px;
+            font-family: var(--font-titling);
+            font-size: 15px;
             font-weight: 700;
+            letter-spacing: 0.05em;
             color: var(--ink);
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .protocol-body {
             font-size: 13.5px;
-            line-height: 1.6;
+            line-height: 1.62;
             color: var(--ink-secondary);
         }
 
         /* Transparent Engagement Charter */
         .charter-section {
-            padding: 80px 0;
+            padding: 88px 0;
             border-bottom: 2px solid var(--ink);
         }
 
         .charter-card {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
             background: var(--paper-card);
             border: 2px solid var(--ink);
-            padding: 48px;
+            padding: 52px;
             box-shadow: 6px 8px 0px var(--paper-accent);
         }
 
         .charter-tag {
-            font-family: var(--font-mono);
+            font-family: var(--font-titling);
             font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.12em;
+            font-weight: 700;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
             color: var(--forest);
             margin-bottom: 12px;
@@ -702,57 +713,58 @@
         .charter-price-row {
             display: flex;
             align-items: baseline;
-            gap: 12px;
-            margin: 20px 0 6px;
+            gap: 14px;
+            margin: 22px 0 6px;
         }
 
         .charter-price {
-            font-family: var(--font-serif);
-            font-size: 64px;
+            font-family: var(--font-display);
+            font-size: 68px;
             font-weight: 700;
             color: var(--ink);
             line-height: 1;
+            letter-spacing: -0.03em;
         }
 
         .charter-period {
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
             font-size: 15px;
             color: var(--ink-muted);
         }
 
         .charter-setup {
-            font-family: var(--font-mono);
+            font-family: var(--font-code);
             font-size: 13px;
             color: var(--forest);
-            font-weight: 600;
-            margin-bottom: 32px;
+            font-weight: 700;
+            margin-bottom: 34px;
         }
 
         .deliverables-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 36px;
+            margin-bottom: 38px;
             padding-top: 24px;
             border-top: 1px solid var(--line-subtle);
         }
 
         .deliverables-table td {
-            padding: 10px 0;
+            padding: 11px 0;
             font-size: 14px;
             color: var(--ink-secondary);
             border-bottom: 1px solid var(--paper-tint);
         }
 
         .deliverables-table td:first-child {
-            font-family: var(--font-mono);
-            font-weight: 600;
+            font-family: var(--font-code);
+            font-weight: 700;
             color: var(--forest);
             width: 28px;
         }
 
         /* Broadsheet Footer */
         footer {
-            padding: 48px 0;
+            padding: 50px 0;
             background: var(--paper);
             font-size: 12.5px;
             color: var(--ink-muted);
@@ -769,9 +781,12 @@
         .footer-legal a {
             color: var(--ink);
             text-decoration: none;
-            margin-left: 20px;
-            font-family: var(--font-mono);
+            margin-left: 24px;
+            font-family: var(--font-titling);
             font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .footer-legal a:hover {
@@ -868,15 +883,15 @@
                     <div class="dossier-sim-trigger">
                         <div class="sim-label">
                             <span>TEST LIVE INTAKE PROTOCOL:</span>
-                            <span style="color: var(--forest); font-weight: 600;">ACTIVE</span>
+                            <span style="color: var(--forest); font-weight: 700;">ACTIVE</span>
                         </div>
                         <button class="sim-scenario-btn active" onclick="swapSim('allon4')">
                             <span>All-on-4 Full Arch ($24,000)</span>
-                            <span style="font-family: var(--font-mono); font-size: 11px;">Select →</span>
+                            <span style="font-family: var(--font-code); font-size: 11px;">Select →</span>
                         </button>
                         <button class="sim-scenario-btn" onclick="swapSim('implant')">
                             <span>Single Tooth Implant ($4,500)</span>
-                            <span style="font-family: var(--font-mono); font-size: 11px;">Select →</span>
+                            <span style="font-family: var(--font-code); font-size: 11px;">Select →</span>
                         </button>
 
                         <div id="simLog" class="sim-live-stream">
@@ -1032,7 +1047,7 @@
             <div class="charter-card">
                 <div style="text-align: center;">
                     <div class="charter-tag">2026 CLINICAL PRACTICE PARTNERSHIP</div>
-                    <h2 style="font-family: var(--font-serif); font-size: 36px; font-weight: 600; margin-bottom: 8px;">
+                    <h2 style="font-family: var(--font-display); font-size: 38px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.02em;">
                         Transparent Partnership Charter
                     </h2>
                     <p style="font-size: 15px; color: var(--ink-secondary);">
@@ -1088,8 +1103,8 @@
     <footer>
         <div class="container footer-content">
             <div>
-                <strong>NexusPulse Technologies</strong> • Clinical Systems Architecture &amp; Speed-to-Lead Infrastructure
-                <div style="margin-top: 4px;">Confidential Technical Lab • Domain: <a href="https://nexuspulsetech.com" style="color: var(--ink);">nexuspulsetech.com</a></div>
+                <strong style="font-family: var(--font-titling); letter-spacing: 0.08em; text-transform: uppercase;">NexusPulse Technologies</strong> • Clinical Systems Architecture &amp; Speed-to-Lead Infrastructure
+                <div style="margin-top: 4px; font-family: var(--font-code); font-size: 11px;">Confidential Technical Lab • Domain: <a href="https://nexuspulsetech.com" style="color: var(--ink);">nexuspulsetech.com</a></div>
             </div>
             <div class="footer-legal">
                 <a href="mailto:team@nexuspulsetech.com">team@nexuspulsetech.com</a>
