@@ -690,6 +690,22 @@
             color: var(--ink-secondary);
         }
 
+        
+        .price-currency {
+            font-family: var(--font-body);
+            font-size: 0.52em;
+            font-weight: 600;
+            vertical-align: 28px;
+            margin-right: 4px;
+            color: var(--forest);
+        }
+        @media (max-width: 768px) {
+            .price-currency {
+                vertical-align: 18px;
+                font-size: 0.5em;
+            }
+        }
+  
         /* Transparent Engagement Charter */
         .charter-section {
             padding: 88px 0;
@@ -1215,7 +1231,7 @@
                     <div class="hero-actions-row">
                         <button type="button" onclick="openModal('audit')" class="btn-primary-warm" style="cursor: pointer; font-family: var(--font-display);">
                             Request Free 48-Hour Speed Audit →
-                        </a>
+                        </button>
                         <a href="#modeling" class="hero-link-sec">
                             Model Practice Revenue Leakage
                         </a>
@@ -1418,7 +1434,7 @@
                     </p>
 
                     <div class="charter-price-row" style="justify-content: center;">
-                        <span class="charter-price">$397</span>
+                        <span class="charter-price"><span class="price-currency">$</span>397</span>
                         <span class="charter-period">/ month retainer</span>
                     </div>
                     <div class="charter-setup">+ $497 One-Time Implementation &amp; EHR Bridge</div>
