@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusPulse Technologies | Autonomous Speed-to-Lead & Patient Triage</title>
+    <meta name="description" content="Never lose an after-hours high-ticket dental patient again. Sub-45 second automated patient triage and instant calendar booking for premier dental implant and cosmetic practices.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0c10;
+            --bg-surface: #11141c;
+            --bg-elevated: #161b26;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(255, 255, 255, 0.16);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle radial background glow */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.12), transparent 45%),
+                radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.06), transparent 35%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header / Nav */
+        header {
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(16px);
+            background: rgba(10, 12, 16, 0.75);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 17px;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #0a0c10;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 10px 20px -5px rgba(255,255,255,0.15);
+        }
+
+        .btn-primary:hover {
+            background: #e5e7eb;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border-color: var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-elevated);
+            border-color: var(--border-highlight);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 96px 0 64px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 13px;
+            color: #93c5fd;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            font-weight: 600;
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+            max-width: 900px;
+            margin: 0 auto 24px;
+        }
+
+        .hero h1 span.serif-accent {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-style: italic;
+            color: #93c5fd;
+        }
+
+        .hero p.lead {
+            font-size: clamp(17px, 2vw, 20px);
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 36px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 56px;
+        }
+
+        .trust-line {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            letter-spacing: 0.02em;
+        }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 96px;
+        }
+
+        .metric-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+        }
+
+        .metric-value {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .metric-value .unit {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 64px 0 96px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 56px;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        @media (max-width: 768px) {
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .compare-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 36px;
+        }
+
+        .compare-card.bad {
+            border-color: rgba(244, 63, 94, 0.2);
+            background: linear-gradient(180deg, rgba(244, 63, 94, 0.03), transparent 60%), var(--bg-surface);
+        }
+
+        .compare-card.good {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: linear-gradient(180deg, rgba(16, 185, 129, 0.05), transparent 60%), var(--bg-surface);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .card-badge {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-family: var(--font-mono);
+        }
+
+        .card-badge.bad {
+            background: rgba(244, 63, 94, 0.12);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+
+        .card-badge.good {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .timeline-steps {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+        }
+
+        .step-time {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-muted);
+            min-width: 75px;
+        }
+
+        .step-body {
+            color: var(--text-secondary);
+        }
+
+        .step-body strong {
+            color: var(--text-primary);
+        }
+
+        /* ROI Interactive Calculator */
+        .calc-section {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 48px;
+            margin: 64px 0 96px;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (max-width: 860px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .slider-group {
+            margin-bottom: 24px;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .slider-val {
+            font-family: var(--font-mono);
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        input[type=range] {
+            width: 100%;
+            accent-color: #3b82f6;
+            background: var(--bg-elevated);
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .calc-result-box {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-highlight);
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .result-subtitle {
+            font-size: 13px;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-amber);
+            margin-bottom: 12px;
+        }
+
+        .result-leakage {
+            font-size: 44px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #f87171;
+            margin-bottom: 8px;
+        }
+
+        .result-recovered {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .result-recovered strong {
+            color: var(--accent-emerald);
+        }
+
+        /* Transparent Pricing */
+        .pricing-section {
+            padding: 64px 0 96px;
+        }
+
+        .pricing-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 48px;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.08);
+            position: relative;
+        }
+
+        .pricing-tag {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .price-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .price-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .price-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .price-figures {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .price-main {
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .price-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .price-setup-tag {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            display: inline-block;
+            margin-bottom: 28px;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 36px;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .check-icon {
+            color: var(--accent-emerald);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(180deg, var(--bg-surface), var(--bg-primary));
+            border-top: 1px solid var(--border-subtle);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-mark">NP</div>
+                <div class="logo-text">NexusPulse Technologies</div>
+            </a>
+            <div class="nav-links">
+                <a href="#comparison">Speed Benchmark</a>
+                <a href="#calculator">Leakage Calculator</a>
+                <a href="#pricing">Pricing</a>
+                <a href="mailto:team@nexuspulsetech.com" class="btn btn-primary">Request Practice Audit</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                InstantCapture™ Patient Intake Engine
+            </div>
+            <h1>
+                Never lose an after-hours <span class="serif-accent">dental implant</span> inquiry to local competitors again.
+            </h1>
+            <p class="lead">
+                We install an autonomous sub-45 second SMS & triage bridge that pre-qualifies implant inquiries, answers clinical questions, and books consultations directly into your calendar while your staff sleeps.
+            </p>
+            <div class="hero-actions">
+                <a href="mailto:team@nexuspulsetech.com?subject=Practice%20Diagnostic%20Request" class="btn btn-primary" style="padding: 14px 28px; font-size: 16px;">
+                    Request Free 48-Hour Speed Audit
+                </a>
+                <a href="#calculator" class="btn btn-secondary" style="padding: 14px 24px; font-size: 16px;">
+                    Calculate Revenue Leakage
+                </a>
+            </div>
+            <div class="trust-line">
+                BUILT SPECIFICALLY FOR PRIVATE COSMETIC DENTISTRY & ORAL SURGERY CLINICS
+            </div>
+        </section>
+
+        <!-- Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">
+                    42 <span class="unit">sec</span>
+                </div>
+                <div class="metric-label">Average patient engagement latency after submission vs. industry average of 14.2 hours.</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">
+                    391 <span class="unit">%</span>
+                </div>
+                <div class="metric-label">Increase in appointment conversion when engaging high-intent leads within the first 60 seconds.</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">
+                    $14,500 <span class="unit">/mo</span>
+                </div>
+                <div class="metric-label">Average recovered revenue per practice by stopping evening and weekend inquiry abandonment.</div>
+            </div>
+        </div>
+
+        <!-- Comparison -->
+        <section id="comparison" class="comparison-section">
+            <div class="section-header">
+                <div class="section-tag">SPEED-TO-LEAD BENCHMARK</div>
+                <h2 class="section-title">Why 68% of after-hours implant leads never book.</h2>
+                <p class="section-desc">Patients researching All-on-4 or smile makeovers on Friday evening won't wait until Monday morning. They call the first practice that engages them.</p>
+            </div>
+
+            <div class="compare-grid">
+                <div class="compare-card bad">
+                    <div class="card-header">
+                        <div class="card-title">Traditional Practice Workflow</div>
+                        <div class="card-badge bad">Grade F (High Leakage)</div>
+                    </div>
+                    <ul class="timeline-steps">
+                        <li class="timeline-step">
+                            <div class="step-time">7:15 PM Fri</div>
+                            <div class="step-body">Prospect submits web form asking about dental implant costs.</div>
+                        </li>
+                        <li class="timeline-step">
+                            <div class="step-time">7:16 PM Fri</div>
+                            <div class="step-body">Generic automated email: <em>"Thank you for contacting us, we will reply during office hours."</em></div>
+                        </li>
+                        <li class="timeline-step">
+                            <div class="step-time">7:30 PM Fri</div>
+                            <div class="step-body">Frustrated prospect opens Google and books with a competing clinic.</div>
+                        </li>
+                        <li class="timeline-step">
+                            <div class="step-time">9:45 AM Mon</div>
+                            <div class="step-body"><strong>Call back attempt:</strong> Voicemail. Patient already consulted elsewhere. <strong>$8,000 lost case value.</strong></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="compare-card good">
+                    <div class="card-header">
+                        <div class="card-title">NexusPulse InstantCapture™</div>
+                        <div class="card-badge good">Grade A+ (Autonomous)</div>
+                    </div>
+                    <ul class="timeline-steps">
+                        <li class="timeline-step">
+                            <div class="step-time">7:15 PM Fri</div>
+                            <div class="step-body">Prospect submits web form inquiring about dental implants.</div>
+                        </li>
+                        <li class="timeline-step">
+                            <div class="step-time">7:15:38 PM</div>
+                            <div class="step-body"><strong>Interactive SMS dispatched (38s):</strong> Greets patient by name, confirms doctor availability, offers quick triage questions.</div>
+                        </li>
+                        <li class="timeline-step">
+                            <div class="step-time">7:18 PM Fri</div>
+                            <div class="step-body">Patient answers 3 questions via SMS. System confirms candidacy and presents real-time calendar slots.</div>
+                        </li>
+                        <li class="timeline-step">
+                            <div class="step-time">7:20 PM Fri</div>
+                            <div class="step-body"><strong>Consultation booked:</strong> Confirmed into practice calendar. Doctor alerted. <strong>$8,000 revenue secured.</strong></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator -->
+        <section id="calculator" class="calc-section">
+            <div class="section-header" style="margin-bottom: 36px;">
+                <div class="section-tag">LEAKAGE CALCULATOR</div>
+                <h2 class="section-title">Calculate Your Clinic's Monthly Leakage</h2>
+            </div>
+            <div class="calc-grid">
+                <div class="calc-inputs">
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Average Case Lifetime Value (Implant / Cosmetic)</span>
+                            <span id="caseValLabel" class="slider-val">$6,500</span>
+                        </div>
+                        <input type="range" id="caseVal" min="3000" max="25000" step="500" value="6500" oninput="updateCalc()">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Monthly Web Inquiries & Form Submissions</span>
+                            <span id="leadsLabel" class="slider-val">45 inquiries</span>
+                        </div>
+                        <input type="range" id="leads" min="10" max="200" step="5" value="45" oninput="updateCalc()">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>After-Hours & Weekend Inquiry Share</span>
+                            <span id="afterHoursLabel" class="slider-val">55%</span>
+                        </div>
+                        <input type="range" id="afterHours" min="30" max="80" step="5" value="55" oninput="updateCalc()">
+                    </div>
+                </div>
+
+                <div class="calc-result-box">
+                    <div class="result-subtitle">ESTIMATED ANNUAL REVENUE LEAKAGE</div>
+                    <div id="annualLeakage" class="result-leakage">$128,700</div>
+                    <div class="result-recovered">
+                        Potential Recovered Revenue: <br>
+                        <strong id="monthlyRecovered">$10,725 / month</strong>
+                    </div>
+                    <a href="mailto:team@nexuspulsetech.com?subject=Leakage%20Remediation%20Inquiry" class="btn btn-primary" style="width: 100%;">
+                        Stop This Leakage Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="pricing-section">
+            <div class="section-header">
+                <div class="section-tag">TRANSPARENT IMPLEMENTATION</div>
+                <h2 class="section-title">Simple, ROI-Guaranteed Pricing</h2>
+                <p class="section-desc">Recover just 1 single implant case per quarter and the system pays for itself 10x over.</p>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-tag">Introductory 2026 Partner Tier</div>
+                <div class="price-header">
+                    <div class="price-title">Turnkey Speed-to-Lead Installation</div>
+                    <div class="price-desc">Complete custom setup, clinic EHR/calendar bridge, and continuous 24/7 monitoring.</div>
+                </div>
+
+                <div class="price-figures">
+                    <div class="price-main">$397</div>
+                    <div class="price-sub">/ month</div>
+                </div>
+
+                <div style="text-align: center;">
+                    <div class="price-setup-tag">+ $497 One-Time Implementation & EHR Bridge</div>
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item"><span class="check-icon">✓</span> Bespoke Sub-45s SMS & WhatsApp Intake Bridge</li>
+                    <li class="feature-item"><span class="check-icon">✓</span> Custom Clinical Qualification Logic (All-on-4, Veneers, Single Implants)</li>
+                    <li class="feature-item"><span class="check-icon">✓</span> Two-Way Real-Time Calendar & EHR Booking Integration</li>
+                    <li class="feature-item"><span class="check-icon">✓</span> Instant Practice Owner SMS Escalation for VIP Patients</li>
+                    <li class="feature-item"><span class="check-icon">✓</span> Monthly Executive Speed-to-Lead & Leakage Report</li>
+                    <li class="feature-item"><span class="check-icon">✓</span> 30-Day Zero-Risk Guarantee: Cancel anytime, zero contract locks</li>
+                </ul>
+
+                <a href="mailto:team@nexuspulsetech.com?subject=Start%20Installation%20-%20Partner%20Tier" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 16px;">
+                    Initiate Practice Onboarding
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong>NexusPulse Technologies</strong> • Zero Missed Leads. Autonomous 60-Second Patient Triage.</p>
+            <p>Direct Inquiries: <a href="mailto:team@nexuspulsetech.com">team@nexuspulsetech.com</a> | Domain: <a href="https://nexuspulsetech.com">nexuspulsetech.com</a></p>
+            <p style="margin-top: 16px; font-size: 12px; color: var(--text-muted);">© 2026 NexusPulse Technologies. All rights reserved. Confidential technical lab.</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateCalc() {
+            const caseVal = parseInt(document.getElementById('caseVal').value);
+            const leads = parseInt(document.getElementById('leads').value);
+            const afterHoursPct = parseInt(document.getElementById('afterHours').value) / 100;
+
+            document.getElementById('caseValLabel').innerText = '$' + caseVal.toLocaleString();
+            document.getElementById('leadsLabel').innerText = leads + ' inquiries';
+            document.getElementById('afterHoursLabel').innerText = Math.round(afterHoursPct * 100) + '%';
+
+            // Calculations based on industry study (35% loss of after-hours leads, with 12% closing rate on high-ticket)
+            const afterHoursLeads = leads * afterHoursPct;
+            const lostCasesMonthly = afterHoursLeads * 0.35 * 0.12; 
+            const monthlyLeak = lostCasesMonthly * caseVal;
+            const annualLeak = monthlyLeak * 12;
+
+            document.getElementById('annualLeakage').innerText = '$' + Math.round(annualLeak).toLocaleString();
+            document.getElementById('monthlyRecovered').innerText = '$' + Math.round(monthlyLeak).toLocaleString() + ' / month';
+        }
+        updateCalc();
+    </script>
+</body>
+</html>
