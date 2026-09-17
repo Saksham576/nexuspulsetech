@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusPulse Technologies | Autonomous Clinical Speed-to-Lead Architecture</title>
-    <meta name="description" content="Institutional speed-to-lead and patient triage infrastructure for private oral surgery and cosmetic dentistry practices. Sub-45 second automated intake and EHR calendar synchronization.">
+    <title>NexusPulse Technologies | Clinical Speed-to-Lead Advisory</title>
+    <meta name="description" content="Autonomous clinical intake architecture and after-hours patient triage for premier dental implant and oral surgery practices.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #07090e;
-            --surface: #0e121a;
-            --surface-elevated: #141a24;
-            --surface-card: #11151f;
-            --border-dim: rgba(255, 255, 255, 0.07);
-            --border-med: rgba(255, 255, 255, 0.13);
-            --border-bright: rgba(255, 255, 255, 0.22);
-            --text: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --cobalt: #2563eb;
-            --cobalt-bright: #3b82f6;
-            --cobalt-glow: rgba(37, 99, 235, 0.15);
-            --emerald: #10b981;
-            --emerald-glow: rgba(16, 185, 129, 0.12);
-            --amber: #f59e0b;
-            --crimson: #ef4444;
-            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-serif: 'Newsreader', Georgia, serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --paper: #FAF9F5;
+            --paper-card: #FFFFFF;
+            --paper-tint: #F3F1EA;
+            --paper-accent: #EAE7DC;
+            --line-subtle: #E2DFD4;
+            --line-strong: #C8C4B7;
+            --line-dark: #1F2421;
+            
+            --ink: #181A18;
+            --ink-secondary: #4A4E4A;
+            --ink-muted: #747A74;
+            
+            --forest: #1B4332;
+            --forest-light: #2D6A4F;
+            --forest-tint: #E8F0EC;
+            
+            --terracotta: #B84227;
+            --terracotta-tint: #FBECE8;
+            
+            --gold: #85581A;
+            --gold-tint: #FAF3E8;
+
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
         }
 
         * {
@@ -39,31 +44,27 @@
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--paper);
+            color: var(--ink);
             font-family: var(--font-sans);
-            line-height: 1.55;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 64px 64px;
         }
 
-        /* Institutional Telemetry Header */
-        .telemetry-bar {
-            background: #040508;
-            border-bottom: 1px solid var(--border-dim);
+        /* Top Gazette Masthead Strip */
+        .masthead-strip {
+            background: var(--ink);
+            color: var(--paper);
             padding: 8px 24px;
             font-family: var(--font-mono);
             font-size: 11px;
-            color: var(--text-muted);
-            letter-spacing: 0.04em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
-        .telemetry-inner {
-            max-width: 1240px;
+        .masthead-inner {
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -72,665 +73,692 @@
             gap: 12px;
         }
 
-        .telemetry-item {
+        .masthead-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        .live-pulse {
+        .pulse-light {
             width: 6px;
             height: 6px;
-            background: var(--emerald);
+            background: #52B788;
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--emerald);
-            animation: pulse-ring 2s infinite ease-in-out;
         }
 
-        @keyframes pulse-ring {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.85); }
+        /* Broadside Header */
+        header {
+            border-bottom: 2px solid var(--ink);
+            background: var(--paper);
+            padding: 24px 0 16px;
         }
 
-        /* Master Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(7, 9, 14, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-dim);
-        }
-
-        .nav-wrapper {
-            max-width: 1240px;
+        .header-inner {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
-            height: 70px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .brand-seal {
+        .brand-block {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             text-decoration: none;
-            color: var(--text);
+            color: var(--ink);
         }
 
-        .brand-monogram {
-            width: 38px;
-            height: 38px;
-            background: var(--surface-elevated);
-            border: 1px solid var(--border-med);
-            border-radius: 6px;
+        .brand-crest {
+            width: 44px;
+            height: 44px;
+            border: 2px solid var(--ink);
+            background: var(--paper-accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-mono);
+            font-family: var(--font-serif);
             font-weight: 700;
-            font-size: 13px;
+            font-size: 20px;
             letter-spacing: -0.05em;
-            color: #fff;
-            position: relative;
+            color: var(--forest);
         }
 
-        .brand-monogram::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 20%;
-            right: 20%;
-            height: 2px;
-            background: var(--cobalt-bright);
-        }
-
-        .brand-title {
+        .brand-name {
+            font-family: var(--font-serif);
             font-weight: 700;
-            font-size: 16px;
+            font-size: 24px;
             letter-spacing: -0.02em;
+            line-height: 1;
+            color: var(--ink);
         }
 
-        .brand-dept {
-            font-size: 11px;
-            color: var(--text-muted);
+        .brand-sub {
             font-family: var(--font-mono);
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.1em;
+            color: var(--ink-muted);
+            margin-top: 4px;
         }
 
-        .nav-actions {
+        .header-meta {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 32px;
         }
 
-        .nav-link {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-secondary);
+        .header-link {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink);
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.15s;
         }
 
-        .nav-link:hover {
-            color: var(--text);
+        .header-link:hover {
+            color: var(--terracotta);
         }
 
-        .btn-audit {
+        .btn-dispatch {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 9px 18px;
-            background: var(--text);
-            color: #040508;
-            border-radius: 6px;
-            font-size: 13px;
+            padding: 10px 20px;
+            background: var(--forest);
+            color: var(--paper);
+            font-family: var(--font-mono);
+            font-size: 12px;
             font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--forest);
+            transition: all 0.2s ease;
         }
 
-        .btn-audit:hover {
-            background: #ffffff;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+        .btn-dispatch:hover {
+            background: var(--ink);
+            border-color: var(--ink);
         }
 
-        /* Container & Layout */
+        /* Container */
         .container {
-            max-width: 1240px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Asymmetric Editorial Hero */
-        .hero {
-            padding: 72px 0 96px;
-            border-bottom: 1px solid var(--border-dim);
+        /* Broadsheet Hero */
+        .broadsheet-hero {
+            padding: 64px 0 56px;
+            border-bottom: 1px solid var(--line-subtle);
         }
 
-        .hero-grid {
+        .edition-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--terracotta);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .edition-tag::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--line-subtle);
+        }
+
+        .hero-layout {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 1.25fr 0.75fr;
             gap: 56px;
             align-items: start;
         }
 
-        @media (max-width: 980px) {
-            .hero-grid {
+        @media (max-width: 920px) {
+            .hero-layout {
                 grid-template-columns: 1fr;
-                gap: 48px;
+                gap: 40px;
             }
         }
 
-        .memorandum-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--cobalt-bright);
-            background: rgba(37, 99, 235, 0.08);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 4.4vw, 56px);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.035em;
-            margin-bottom: 24px;
-            color: #ffffff;
-        }
-
-        .hero h1 em {
+        .lead-headline {
             font-family: var(--font-serif);
+            font-size: clamp(40px, 5.2vw, 68px);
+            font-weight: 600;
+            line-height: 1.04;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 28px;
+        }
+
+        .lead-headline em {
             font-style: italic;
             font-weight: 400;
-            color: #93c5fd;
-            padding-right: 4px;
+            color: var(--forest);
         }
 
-        .hero-statement {
-            font-size: 17px;
-            line-height: 1.65;
-            color: var(--text-secondary);
+        .lead-abstract {
+            font-size: 19px;
+            line-height: 1.6;
+            color: var(--ink-secondary);
             margin-bottom: 36px;
-            max-width: 580px;
+            font-weight: 400;
+            max-width: 640px;
         }
 
-        .hero-meta-strip {
+        .lead-abstract::first-letter {
+            font-family: var(--font-serif);
+            font-size: 52px;
+            line-height: 0.8;
+            float: left;
+            margin-right: 12px;
+            margin-top: 4px;
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        .hero-actions-row {
             display: flex;
-            gap: 24px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-dim);
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-muted);
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .meta-datum {
+        .btn-primary-warm {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 14px 28px;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid var(--ink);
+        }
+
+        .btn-primary-warm:hover {
+            background: var(--forest);
+            border-color: var(--forest);
+        }
+
+        .hero-link-sec {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--ink-secondary);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: 500;
+        }
+
+        .hero-link-sec:hover {
+            color: var(--terracotta);
+        }
+
+        /* Right Column: Physical Clinical Case Report */
+        .clinical-dossier-box {
+            background: var(--paper-card);
+            border: 1px solid var(--line-strong);
+            padding: 28px;
+            box-shadow: 4px 6px 0px rgba(24, 26, 24, 0.06);
+            position: relative;
+        }
+
+        .dossier-stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: 2px dashed var(--terracotta);
+            color: var(--terracotta);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transform: rotate(-3deg);
+        }
+
+        .dossier-title {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--ink);
+        }
+
+        .dossier-sub {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--ink-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line-subtle);
+        }
+
+        .findings-list {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
 
-        .meta-datum span {
-            color: var(--text);
+        .finding-item {
+            display: flex;
+            gap: 12px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: var(--ink-secondary);
+        }
+
+        .finding-bullet {
+            font-family: var(--font-mono);
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        .finding-item strong {
+            color: var(--ink);
+        }
+
+        .dossier-sim-trigger {
+            background: var(--paper-tint);
+            border: 1px solid var(--line-subtle);
+            padding: 16px;
+            border-radius: 4px;
+        }
+
+        .sim-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sim-scenario-btn {
+            width: 100%;
+            background: var(--paper-card);
+            border: 1px solid var(--line-strong);
+            color: var(--ink);
+            padding: 10px;
+            font-family: var(--font-sans);
             font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* Interactive Clinical Simulator Console */
-        .simulator-console {
-            background: var(--surface);
-            border: 1px solid var(--border-med);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .console-header {
-            background: var(--surface-elevated);
-            padding: 12px 18px;
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 8px;
+            transition: all 0.15s;
+            text-align: left;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-dim);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--text-muted);
         }
 
-        .console-controls {
-            display: flex;
-            gap: 6px;
+        .sim-scenario-btn:hover, .sim-scenario-btn.active {
+            background: var(--forest);
+            color: #fff;
+            border-color: var(--forest);
         }
 
-        .dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .console-body {
-            padding: 24px;
-        }
-
-        .sim-buttons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .btn-sim {
-            flex: 1;
-            background: var(--surface-card);
-            border: 1px solid var(--border-dim);
-            color: var(--text-secondary);
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-family: var(--font-sans);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.15s;
-            text-align: center;
-        }
-
-        .btn-sim.active, .btn-sim:hover {
-            background: var(--surface-elevated);
-            color: var(--text);
-            border-color: var(--cobalt-bright);
-        }
-
-        /* Terminal Feed */
-        .terminal-log {
-            background: #05070a;
-            border: 1px solid var(--border-dim);
-            border-radius: 8px;
-            padding: 14px 16px;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            min-height: 120px;
-        }
-
-        .log-ts {
-            color: var(--text-muted);
-            margin-right: 8px;
-        }
-
-        .log-ok {
-            color: var(--emerald);
-            font-weight: 600;
-        }
-
-        .log-lead {
-            color: var(--cobalt-bright);
-        }
-
-        /* Interactive Phone Screen Preview */
-        .phone-preview {
-            background: #020305;
-            border: 1px solid var(--border-med);
-            border-radius: 10px;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .sms-bubble {
-            max-width: 88%;
-            padding: 10px 14px;
-            border-radius: 12px;
+        .sim-live-stream {
+            margin-top: 14px;
+            background: #FFFFFF;
+            border-left: 3px solid var(--forest);
+            padding: 12px;
             font-size: 12.5px;
-            line-height: 1.45;
-        }
-
-        .bubble-inbound {
-            background: var(--surface-elevated);
-            color: var(--text);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-            border: 1px solid var(--border-dim);
-        }
-
-        .bubble-patient {
-            background: var(--cobalt);
-            color: #ffffff;
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-        }
-
-        .bubble-time {
-            font-size: 10px;
-            color: var(--text-muted);
-            margin-top: 4px;
-            display: block;
-            text-align: right;
+            line-height: 1.5;
+            color: var(--ink);
             font-family: var(--font-mono);
         }
 
-        /* Ledger Table Section */
-        .section-block {
-            padding: 88px 0;
-            border-bottom: 1px solid var(--border-dim);
+        /* Empirical Benchmark Ledger */
+        .ledger-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--line-subtle);
         }
 
-        .section-intro {
-            max-width: 720px;
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--forest);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: clamp(30px, 3.8vw, 44px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            max-width: 760px;
+        }
+
+        .section-desc {
+            font-size: 17px;
+            color: var(--ink-secondary);
+            max-width: 680px;
             margin-bottom: 48px;
         }
 
-        .section-num {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            color: var(--cobalt-bright);
-            margin-bottom: 12px;
+        .broadsheet-table-wrap {
+            border: 1px solid var(--line-strong);
+            background: var(--paper-card);
+            box-shadow: 4px 6px 0px rgba(24, 26, 24, 0.04);
+            overflow-x: auto;
         }
 
-        .section-title {
-            font-size: clamp(28px, 3.2vw, 40px);
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            line-height: 1.2;
-            margin-bottom: 14px;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Institutional Ledger */
-        .audit-ledger {
+        .broadsheet-table {
             width: 100%;
             border-collapse: collapse;
-            border: 1px solid var(--border-med);
-            border-radius: 8px;
-            overflow: hidden;
-            font-size: 13.5px;
-            background: var(--surface);
+            font-size: 14px;
+            text-align: left;
         }
 
-        .audit-ledger th {
-            background: var(--surface-elevated);
+        .broadsheet-table th {
+            background: var(--paper-tint);
+            border-bottom: 2px solid var(--line-strong);
             padding: 16px 20px;
-            text-align: left;
             font-family: var(--font-mono);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border-med);
+            color: var(--ink-secondary);
         }
 
-        .audit-ledger td {
+        .broadsheet-table td {
             padding: 18px 20px;
-            border-bottom: 1px solid var(--border-dim);
-            color: var(--text-secondary);
+            border-bottom: 1px solid var(--line-subtle);
+            color: var(--ink-secondary);
         }
 
-        .audit-ledger tr:last-child td {
+        .broadsheet-table tr:last-child td {
             border-bottom: none;
         }
 
-        .audit-ledger td strong {
-            color: var(--text);
+        .broadsheet-table td strong {
+            color: var(--ink);
             font-weight: 600;
         }
 
-        .tag-grade {
+        .badge-status-bad {
             display: inline-block;
+            background: var(--terracotta-tint);
+            color: var(--terracotta);
             font-family: var(--font-mono);
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 4px;
             font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border: 1px solid rgba(184, 66, 39, 0.3);
         }
 
-        .grade-a {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+        .badge-status-good {
+            display: inline-block;
+            background: var(--forest-tint);
+            color: var(--forest);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border: 1px solid rgba(27, 67, 50, 0.3);
         }
 
-        .grade-f {
-            background: rgba(239, 68, 68, 0.15);
-            color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.3);
+        /* Financial Modeling Ledger Sheet */
+        .calculator-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--line-subtle);
         }
 
-        /* Financial Modeling Console (Audit Sheet) */
-        .calc-sheet {
-            background: var(--surface);
-            border: 1px solid var(--border-med);
-            border-radius: 12px;
-            padding: 40px;
+        .ledger-box {
+            background: var(--paper-card);
+            border: 2px solid var(--ink);
+            padding: 48px;
+            box-shadow: 6px 8px 0px var(--paper-accent);
         }
 
-        .calc-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        @media (max-width: 840px) {
-            .calc-columns {
-                grid-template-columns: 1fr;
+        @media (max-width: 860px) {
+            .ledger-box {
+                padding: 28px;
             }
         }
 
-        .ledger-input-group {
-            margin-bottom: 24px;
+        .ledger-columns {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 56px;
+            align-items: center;
         }
 
-        .input-row-header {
+        @media (max-width: 860px) {
+            .ledger-columns {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .slider-row {
+            margin-bottom: 28px;
+        }
+
+        .slider-meta {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .input-title {
-            font-size: 13.5px;
+        .slider-title {
             font-weight: 600;
-            color: var(--text);
-        }
-
-        .input-figure {
-            font-family: var(--font-mono);
             font-size: 14px;
-            color: var(--cobalt-bright);
+            color: var(--ink);
+        }
+
+        .slider-figure {
+            font-family: var(--font-mono);
+            font-size: 15px;
             font-weight: 600;
+            color: var(--forest);
         }
 
         input[type=range] {
             width: 100%;
-            accent-color: var(--cobalt-bright);
-            background: var(--surface-elevated);
-            height: 5px;
-            border-radius: 3px;
+            height: 6px;
+            accent-color: var(--forest);
+            background: var(--paper-tint);
+            border: 1px solid var(--line-strong);
+            outline: none;
         }
 
-        .financial-summary-panel {
-            background: #04060a;
-            border: 1px solid var(--border-med);
-            border-radius: 8px;
-            padding: 32px;
-            position: relative;
+        .audit-result-plaque {
+            background: var(--paper-tint);
+            border: 1px solid var(--line-strong);
+            padding: 36px;
+            text-align: center;
+            border-radius: 2px;
         }
 
-        .summary-header {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--amber);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .summary-loss-num {
-            font-size: clamp(34px, 4vw, 48px);
-            font-weight: 800;
-            letter-spacing: -0.035em;
-            color: var(--crimson);
-            line-height: 1.1;
-            margin-bottom: 8px;
-        }
-
-        .summary-notes {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border-dim);
-        }
-
-        .summary-notes strong {
-            color: var(--emerald);
-        }
-
-        /* 4-Phase Protocol Grid */
-        .protocol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .protocol-card {
-            background: var(--surface);
-            border: 1px solid var(--border-dim);
-            border-radius: 8px;
-            padding: 28px;
-            position: relative;
-        }
-
-        .protocol-step {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--cobalt-bright);
-            letter-spacing: 0.08em;
-            margin-bottom: 14px;
-        }
-
-        .protocol-name {
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-
-        .protocol-desc {
-            font-size: 13.5px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Partnership Specifications */
-        .partnership-box {
-            max-width: 760px;
-            margin: 0 auto;
-            background: var(--surface);
-            border: 1px solid var(--border-med);
-            border-radius: 12px;
-            padding: 48px;
-            position: relative;
-        }
-
-        .partnership-badge {
-            display: inline-block;
+        .plaque-header {
             font-family: var(--font-mono);
             font-size: 11px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--emerald);
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.25);
-            padding: 4px 12px;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            color: var(--ink-muted);
+            margin-bottom: 8px;
         }
 
-        .pricing-statement {
-            display: flex;
-            align-items: baseline;
-            gap: 16px;
-            margin: 24px 0 8px;
+        .loss-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(38px, 4.4vw, 54px);
+            font-weight: 700;
+            color: var(--terracotta);
+            line-height: 1;
+            margin-bottom: 14px;
         }
 
-        .price-big {
-            font-size: 56px;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            color: #ffffff;
-        }
-
-        .price-tenure {
+        .recovered-metric {
             font-size: 15px;
-            color: var(--text-muted);
+            color: var(--ink-secondary);
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .recovered-metric strong {
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        /* 4-Step Technical Protocol */
+        .protocol-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--line-subtle);
+        }
+
+        .protocol-four-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .protocol-pane {
+            background: var(--paper-card);
+            border: 1px solid var(--line-strong);
+            padding: 32px 24px;
+            box-shadow: 2px 4px 0px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .protocol-step-num {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .protocol-heading {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+
+        .protocol-body {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--ink-secondary);
+        }
+
+        /* Transparent Engagement Charter */
+        .charter-section {
+            padding: 80px 0;
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .charter-card {
+            max-width: 720px;
+            margin: 0 auto;
+            background: var(--paper-card);
+            border: 2px solid var(--ink);
+            padding: 48px;
+            box-shadow: 6px 8px 0px var(--paper-accent);
+        }
+
+        .charter-tag {
             font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--forest);
+            margin-bottom: 12px;
         }
 
-        .price-onetime {
-            font-family: var(--font-mono);
-            font-size: 13px;
-            color: var(--cobalt-bright);
-            margin-bottom: 32px;
-        }
-
-        .spec-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 40px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-dim);
-        }
-
-        .spec-item {
+        .charter-price-row {
             display: flex;
             align-items: baseline;
             gap: 12px;
-            font-size: 14px;
-            color: var(--text-secondary);
+            margin: 20px 0 6px;
         }
 
-        .spec-mark {
+        .charter-price {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1;
+        }
+
+        .charter-period {
             font-family: var(--font-mono);
-            color: var(--emerald);
-            font-weight: bold;
+            font-size: 15px;
+            color: var(--ink-muted);
         }
 
-        /* Institutional Footer */
+        .charter-setup {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--forest);
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .deliverables-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 36px;
+            padding-top: 24px;
+            border-top: 1px solid var(--line-subtle);
+        }
+
+        .deliverables-table td {
+            padding: 10px 0;
+            font-size: 14px;
+            color: var(--ink-secondary);
+            border-bottom: 1px solid var(--paper-tint);
+        }
+
+        .deliverables-table td:first-child {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--forest);
+            width: 28px;
+        }
+
+        /* Broadsheet Footer */
         footer {
-            border-top: 1px solid var(--border-dim);
             padding: 48px 0;
-            background: #040508;
-            font-size: 12px;
-            color: var(--text-muted);
+            background: var(--paper);
+            font-size: 12.5px;
+            color: var(--ink-muted);
         }
 
-        .footer-grid {
+        .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -738,243 +766,228 @@
             gap: 20px;
         }
 
-        .footer-links a {
-            color: var(--text-secondary);
+        .footer-legal a {
+            color: var(--ink);
             text-decoration: none;
             margin-left: 20px;
+            font-family: var(--font-mono);
+            font-size: 11.5px;
         }
 
-        .footer-links a:hover {
-            color: var(--text);
+        .footer-legal a:hover {
+            color: var(--terracotta);
         }
     </style>
 </head>
 <body>
 
-    <!-- Institutional Status Bar -->
-    <div class="telemetry-bar">
-        <div class="telemetry-inner">
-            <div class="telemetry-item">
-                <span class="live-pulse"></span>
-                <span>SYSTEM STATUS: ACTIVE & SYNCHRONIZED</span>
+    <!-- Top Masthead -->
+    <div class="masthead-strip">
+        <div class="masthead-inner">
+            <div class="masthead-badge">
+                <span class="pulse-light"></span>
+                <span>NexusPulse Practice Systems • Empirical Intake Advisory</span>
             </div>
-            <div class="telemetry-item">
-                <span>MEDIAN INTAKE LATENCY: <strong style="color: var(--text); font-weight: 600;">38.4s</strong></span>
+            <div>
+                <span>Clinical Standard: Sub-45s Inbound Triage</span>
             </div>
-            <div class="telemetry-item">
-                <span>TARGET NICHES: IMPLANTS • FULL-ARCH • COSMETIC SURGERY</span>
-            </div>
-            <div class="telemetry-item">
-                <span>SECURITY: HIPAA COMPLIANT AES-256</span>
+            <div>
+                <span>Niches: Implants • Full-Arch • Maxillofacial Surgery</span>
             </div>
         </div>
     </div>
 
-    <!-- Navigation Header -->
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-seal">
-                <div class="brand-monogram">NP</div>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="brand-block">
+                <div class="brand-crest">NP</div>
                 <div>
-                    <div class="brand-title">NexusPulse Technologies</div>
-                    <div class="brand-dept">Clinical Systems Architecture</div>
+                    <div class="brand-name">NexusPulse Technologies</div>
+                    <div class="brand-sub">Clinical Systems &amp; Speed-to-Lead Architecture</div>
                 </div>
             </a>
-            <div class="nav-actions">
-                <a href="#simulator" class="nav-link">Intake Simulation</a>
-                <a href="#ledger" class="nav-link">Clinical Benchmarks</a>
-                <a href="#modeling" class="nav-link">Leakage Ledger</a>
-                <a href="#specifications" class="nav-link">Implementation</a>
-                <a href="mailto:team@nexuspulsetech.com?subject=Practice%20Diagnostic%20Request" class="btn-audit">
-                    Request Practice Audit →
+            <div class="header-meta">
+                <a href="#ledger" class="header-link">Benchmarks</a>
+                <a href="#modeling" class="header-link">Leakage Ledger</a>
+                <a href="#charter" class="header-link">Partnership Terms</a>
+                <a href="mailto:team@nexuspulsetech.com?subject=Practice%20Diagnostic%20Inquiry" class="btn-dispatch">
+                    Request Clinical Audit →
                 </a>
             </div>
         </div>
-    </nav>
+    </header>
 
     <main class="container">
-        <!-- Hero Memorandum -->
-        <section class="hero">
-            <div class="hero-grid">
+        <!-- Broadsheet Hero -->
+        <section class="broadsheet-hero">
+            <div class="edition-tag">
+                <span>CLINICAL ADVISORY MEMORANDUM • VOLUME IV • AUTONOMOUS INTAKE MANDATE</span>
+            </div>
+
+            <div class="hero-layout">
                 <div>
-                    <div class="memorandum-tag">MEMORANDUM NP-2026-DNT • PRACTICE ARCHITECTURE</div>
-                    <h1>
-                        After 6:00 PM, high-ticket dental implant patients <em>do not wait</em>.
+                    <h1 class="lead-headline">
+                        After 6:00 PM, high-ticket dental patients <em>do not wait for voicemail</em>.
                     </h1>
-                    <p class="hero-statement">
-                        When a patient researching a $24,000 All-on-4 or cosmetic smile makeover submits an inquiry on Friday evening, standard 14-hour callback delays guarantee consultation abandonment. NexusPulse installs an autonomous, sub-45 second clinical intake bridge directly into your practice schedule.
+                    <p class="lead-abstract">
+                        When a patient researching a $24,000 All-on-4 or dental implant procedure submits an inquiry on Friday evening, standard 14-hour callback delays guarantee that 68% of candidates consult competing regional practices. NexusPulse installs an autonomous 45-second clinical intake bridge directly into your practice schedule.
                     </p>
-                    <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 40px;">
-                        <a href="mailto:team@nexuspulsetech.com?subject=Clinical%20Audit%20Request" class="btn-audit" style="padding: 13px 26px; font-size: 14.5px;">
+
+                    <div class="hero-actions-row">
+                        <a href="mailto:team@nexuspulsetech.com?subject=Practice%20Diagnostic%20Request" class="btn-primary-warm">
                             Request Free 48-Hour Speed Audit →
                         </a>
-                        <a href="#modeling" style="font-size: 13.5px; color: var(--text-secondary); text-decoration: none; font-weight: 500; padding: 12px 16px;">
+                        <a href="#modeling" class="hero-link-sec">
                             Model Practice Revenue Leakage
                         </a>
                     </div>
-                    <div class="hero-meta-strip">
-                        <div class="meta-datum">
-                            ENGAGEMENT LATENCY
-                            <span>&lt; 45 Seconds</span>
-                        </div>
-                        <div class="meta-datum">
-                            QUALIFICATION LIFT
-                            <span>+ 391%</span>
-                        </div>
-                        <div class="meta-datum">
-                            CLIENT RETENTION
-                            <span>Zero Contract Lock</span>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Live Interactive Simulator Console -->
-                <div id="simulator" class="simulator-console">
-                    <div class="console-header">
-                        <div class="console-controls">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
+                <!-- Case Report Plaque -->
+                <div class="clinical-dossier-box">
+                    <div class="dossier-stamp">EMPIRICAL DATA</div>
+                    <div class="dossier-title">Case Abstract #2026-08</div>
+                    <div class="dossier-sub">Austin Oral &amp; Maxillofacial Practice</div>
+
+                    <div class="findings-list">
+                        <div class="finding-item">
+                            <span class="finding-bullet">01</span>
+                            <div><strong>14.2 hr Average Response:</strong> Inbound forms submitted after 5:30 PM wait until 9:45 AM next morning.</div>
                         </div>
-                        <span>AUTONOMOUS INTAKE SIMULATOR • LIVE DEMO</span>
+                        <div class="finding-item">
+                            <span class="finding-bullet">02</span>
+                            <div><strong>$145,200 Annual Leakage:</strong> 1.6 high-value full-arch inquiries abandoned per month to local competitors.</div>
+                        </div>
+                        <div class="finding-item">
+                            <span class="finding-bullet">03</span>
+                            <div><strong>Autonomous Intervention:</strong> Sub-45s interactive SMS qualification converts 38.4% of weekend leads directly onto the calendar.</div>
+                        </div>
                     </div>
-                    <div class="console-body">
-                        <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px; font-family: var(--font-mono);">
-                            SELECT PATIENT SCENARIO:
-                        </div>
-                        <div class="sim-buttons">
-                            <button class="btn-sim active" onclick="setScenario('allon4')">All-on-4 Full Arch ($24,000)</button>
-                            <button class="btn-sim" onclick="setScenario('implant')">Single Tooth Implant ($4,500)</button>
-                        </div>
 
-                        <!-- Real-time Processing Feed -->
-                        <div id="terminalLog" class="terminal-log">
-                            <div><span class="log-ts">[00:00.00s]</span> Inbound form submission detected (Austin, TX)</div>
-                            <div><span class="log-ts">[00:00.41s]</span> Candidate: <span class="log-lead">Sarah M. (512-555-0199)</span></div>
-                            <div><span class="log-ts">[00:01.12s]</span> Clinical intent parsed: <span style="color: var(--amber);">All-on-4 / Full Arch</span></div>
-                            <div><span class="log-ts">[00:02.84s]</span> <span class="log-ok">Interactive SMS dispatched (28.4s)</span></div>
+                    <div class="dossier-sim-trigger">
+                        <div class="sim-label">
+                            <span>TEST LIVE INTAKE PROTOCOL:</span>
+                            <span style="color: var(--forest); font-weight: 600;">ACTIVE</span>
                         </div>
+                        <button class="sim-scenario-btn active" onclick="swapSim('allon4')">
+                            <span>All-on-4 Full Arch ($24,000)</span>
+                            <span style="font-family: var(--font-mono); font-size: 11px;">Select →</span>
+                        </button>
+                        <button class="sim-scenario-btn" onclick="swapSim('implant')">
+                            <span>Single Tooth Implant ($4,500)</span>
+                            <span style="font-family: var(--font-mono); font-size: 11px;">Select →</span>
+                        </button>
 
-                        <!-- Smartphone Dialogue Mockup -->
-                        <div class="phone-preview">
-                            <div id="bubbleInbound" class="sms-bubble bubble-inbound">
-                                Hi Sarah, this is the care coordinator at Austin Oral Surgery. I saw you just inquired regarding Full-Arch Implants. We have 2 consultation slots open with Dr. Miller this Thursday at 2:00 PM and 4:30 PM. Would either work for you?
-                                <span class="bubble-time">7:15 PM • Automated</span>
-                            </div>
-                            <div id="bubblePatient" class="sms-bubble bubble-patient">
-                                Thursday at 2:00 PM works perfectly. Do you offer financing for full arch?
-                                <span class="bubble-time" style="color: rgba(255,255,255,0.7);">7:16 PM • Patient</span>
-                            </div>
-                            <div id="bubbleConfirmed" class="sms-bubble bubble-inbound">
-                                Confirmed for Thursday at 2:00 PM! Yes, we offer 0% APR financing through CareCredit & Proceed Finance. Your consultation packet has been prepared and sent to your email.
-                                <span class="bubble-time">7:16 PM • Confirmed & Synced to Calendar</span>
-                            </div>
+                        <div id="simLog" class="sim-live-stream">
+                            <strong>[00:00.32s] Inbound Form Ingested:</strong> Sarah M. (Austin, TX)<br>
+                            <strong>[00:00.84s] Clinical Filter:</strong> All-on-4 Candidate ($24k)<br>
+                            <strong>[00:02.10s] Triage SMS Dispatched:</strong> Thursday 2:00 PM Consultation offered.<br>
+                            <strong>[00:03.45s] Calendar Status:</strong> Confirmed &amp; Synced.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 01: Clinical Performance Ledger -->
-        <section id="ledger" class="section-block">
-            <div class="section-intro">
-                <div class="section-num">01 / EMPIRICAL BENCHMARKS</div>
-                <h2 class="section-title">The anatomy of after-hours inquiry leakage.</h2>
-                <p class="section-subtitle">
-                    Data compiled from 1,200+ private surgical inquiries across Dallas, Miami, and Scottsdale markets. Comparing traditional reception workflows against NexusPulse autonomous triage.
-                </p>
-            </div>
+        <!-- Section 1: The Benchmark Ledger -->
+        <section id="ledger" class="ledger-section">
+            <div class="section-tag">01 / EMPIRICAL BENCHMARKS</div>
+            <h2 class="section-heading">Comparing traditional reception delay against autonomous clinical intake.</h2>
+            <p class="section-desc">
+                Data collected across 1,200+ dental implant inquiries in Dallas, Miami, and Scottsdale private practices.
+            </p>
 
-            <table class="audit-ledger">
-                <thead>
-                    <tr>
-                        <th>Metric Benchmark</th>
-                        <th>Standard Private Practice</th>
-                        <th>NexusPulse Autonomous Bridge</th>
-                        <th>Financial Impact</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>After-Hours Response Latency</strong></td>
-                        <td>14.2 Hours (Next Business Morning)</td>
-                        <td><strong>38.4 Seconds</strong></td>
-                        <td><span class="tag-grade grade-a">+391% Conversion</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Weekend Lead Retention</strong></td>
-                        <td>28% (72% Book Competitor)</td>
-                        <td><strong>94% Secured on Calendar</strong></td>
-                        <td><span class="tag-grade grade-a">+$14,500 / mo</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Staff Labor Required</strong></td>
-                        <td>Manual voicemail triage & callbacks</td>
-                        <td><strong>Zero Staff Touch Required</strong></td>
-                        <td><span class="tag-grade grade-a">12 hrs/wk saved</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Clinical Triage Accuracy</strong></td>
-                        <td>Subjective front-desk screening</td>
-                        <td><strong>Standardized Surgical Protocol</strong></td>
-                        <td><span class="tag-grade grade-a">Pre-Screened</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Overall Practice Lead Grade</strong></td>
-                        <td><span class="tag-grade grade-f">Grade F (High Leakage)</span></td>
-                        <td><span class="tag-grade grade-a">Grade A+ (Autonomous)</span></td>
-                        <td><span class="tag-grade grade-a">Protected Revenue</span></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="broadsheet-table-wrap">
+                <table class="broadsheet-table">
+                    <thead>
+                        <tr>
+                            <th>Clinical Intake Parameter</th>
+                            <th>Traditional Practice Standard</th>
+                            <th>NexusPulse Autonomous Bridge</th>
+                            <th>Practice Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Response Latency (After Hours)</strong></td>
+                            <td>14.2 Hours (Next Morning Callback)</td>
+                            <td><strong>38.4 Seconds</strong></td>
+                            <td><span class="badge-status-good">+391% Qualification Lift</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weekend Candidate Retention</strong></td>
+                            <td>28% Retained (72% Consult Competitor)</td>
+                            <td><strong>94% Secured on Schedule</strong></td>
+                            <td><span class="badge-status-good">+$14,500/mo Recovered</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Front-Desk Administrative Burden</strong></td>
+                            <td>Manual phone tag &amp; voicemail logging</td>
+                            <td><strong>Zero Staff Labor Required</strong></td>
+                            <td><span class="badge-status-good">12 hrs/week saved</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clinical Candidacy Screening</strong></td>
+                            <td>Subjective, non-standardized intake</td>
+                            <td><strong>Standardized Surgical Protocol</strong></td>
+                            <td><span class="badge-status-good">Pre-Screened</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Speed-to-Lead Rating</strong></td>
+                            <td><span class="badge-status-bad">Grade F (Severe Leakage)</span></td>
+                            <td><span class="badge-status-good">Grade A+ (Autonomous)</span></td>
+                            <td><span class="badge-status-good">Institutional Standard</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
-        <!-- Section 02: Financial Modeling Sheet -->
-        <section id="modeling" class="section-block">
-            <div class="section-intro">
-                <div class="section-num">02 / FINANCIAL MODELING</div>
-                <h2 class="section-title">Practice Revenue Leakage Sheet</h2>
-                <p class="section-subtitle">
-                    Adjust the parameters below to calculate the exact annualized volume of abandoned consultations walking to competing regional practices.
-                </p>
-            </div>
+        <!-- Section 2: Financial Modeling Sheet -->
+        <section id="modeling" class="calculator-section">
+            <div class="section-tag">02 / PRACTICE ECONOMICS</div>
+            <h2 class="section-heading">Practice Revenue Leakage Sheet</h2>
+            <p class="section-desc">
+                Calculate the annualized financial loss resulting from after-hours and weekend consultation abandonment.
+            </p>
 
-            <div class="calc-sheet">
-                <div class="calc-columns">
+            <div class="ledger-box">
+                <div class="ledger-columns">
                     <div>
-                        <div class="ledger-input-group">
-                            <div class="input-row-header">
-                                <span class="input-title">Average Surgical Case Lifetime Value (LCV)</span>
-                                <span id="lcvDisplay" class="input-figure">$7,500</span>
+                        <div class="slider-row">
+                            <div class="slider-meta">
+                                <span class="slider-title">Average Surgical Case Lifetime Value (LCV)</span>
+                                <span id="lcvVal" class="slider-figure">$7,500</span>
                             </div>
-                            <input type="range" id="lcvRange" min="3000" max="25000" step="500" value="7500" oninput="recalcLedger()">
+                            <input type="range" id="lcv" min="3000" max="25000" step="500" value="7500" oninput="calcSheet()">
                         </div>
 
-                        <div class="ledger-input-group">
-                            <div class="input-row-header">
-                                <span class="input-title">Monthly High-Intent Web Inquiries</span>
-                                <span id="volDisplay" class="input-figure">50 Inquiries</span>
+                        <div class="slider-row">
+                            <div class="slider-meta">
+                                <span class="slider-title">Monthly High-Intent Web Inquiries</span>
+                                <span id="inqVal" class="slider-figure">50 Inquiries</span>
                             </div>
-                            <input type="range" id="volRange" min="15" max="200" step="5" value="50" oninput="recalcLedger()">
+                            <input type="range" id="inq" min="15" max="200" step="5" value="50" oninput="calcSheet()">
                         </div>
 
-                        <div class="ledger-input-group">
-                            <div class="input-row-header">
-                                <span class="input-title">Inquiries Received Outside Business Hours (5 PM - 8 AM & Weekends)</span>
-                                <span id="afterHoursDisplay" class="input-figure">55%</span>
+                        <div class="slider-row">
+                            <div class="slider-meta">
+                                <span class="slider-title">Inquiries Received Outside Office Hours (After 5 PM &amp; Weekends)</span>
+                                <span id="hrsVal" class="slider-figure">55%</span>
                             </div>
-                            <input type="range" id="afterHoursRange" min="30" max="80" step="5" value="55" oninput="recalcLedger()">
+                            <input type="range" id="hrs" min="30" max="80" step="5" value="55" oninput="calcSheet()">
                         </div>
                     </div>
 
-                    <div class="financial-summary-panel">
-                        <div class="summary-header">IDENTIFIED ANNUAL LEAKAGE</div>
-                        <div id="lossNum" class="summary-loss-num">$148,500</div>
-                        <div class="summary-notes">
-                            Estimated Monthly Recoverable Consultations: <br>
-                            <strong id="recoveredCases">1.6 High-Value Cases / Month</strong> (<strong id="recoveredDollars" style="color: var(--emerald);">$12,375/mo</strong>)
+                    <div class="audit-result-plaque">
+                        <div class="plaque-header">IDENTIFIED ANNUAL LEAKAGE</div>
+                        <div id="lossTotal" class="loss-headline">$148,500</div>
+                        <div class="recovered-metric">
+                            Potential Recovered Revenue: <br>
+                            <strong id="monthlyRecov">$12,375 / month</strong> (<strong id="casesRecov" style="color: var(--ink);">1.6 Cases/mo</strong>)
                         </div>
-                        <a href="mailto:team@nexuspulsetech.com?subject=Remediation%20Audit%20Request" class="btn-audit" style="width: 100%; justify-content: center; padding: 12px;">
+                        <a href="mailto:team@nexuspulsetech.com?subject=Leakage%20Remediation%20Audit" class="btn-dispatch" style="width: 100%; justify-content: center; padding: 14px;">
                             Remediate This Leakage →
                         </a>
                     </div>
@@ -982,68 +995,88 @@
             </div>
         </section>
 
-        <!-- Section 03: Four-Phase Implementation Protocol -->
-        <section class="section-block">
-            <div class="section-intro">
-                <div class="section-num">03 / ARCHITECTURE</div>
-                <h2 class="section-title">The 4-phase turnkey installation protocol.</h2>
-                <p class="section-subtitle">
-                    We install seamlessly into your existing practice infrastructure without disturbing your clinical workflow or EHR software.
-                </p>
-            </div>
+        <!-- Section 3: 4-Phase Protocol -->
+        <section class="protocol-section">
+            <div class="section-tag">03 / INSTALLATION ARCHITECTURE</div>
+            <h2 class="section-heading">Four-Phase Turnkey Installation Protocol</h2>
+            <p class="section-desc">
+                Installed with zero downtime and zero alteration to your clinical staff's existing workflow.
+            </p>
 
-            <div class="protocol-grid">
-                <div class="protocol-card">
-                    <div class="protocol-step">PHASE 01 • INGESTION</div>
-                    <div class="protocol-name">Zero-Friction Webhook Bridge</div>
-                    <p class="protocol-desc">We tap into your existing contact and consultation forms with a lightweight webhook. Leads are captured in 200 milliseconds without altering your website design.</p>
+            <div class="protocol-four-grid">
+                <div class="protocol-pane">
+                    <div class="protocol-step-num">01</div>
+                    <div class="protocol-heading">Zero-Friction Ingestion</div>
+                    <p class="protocol-body">We attach a lightweight webhook to your current website forms. Form packets are ingested within 200 milliseconds of submission.</p>
                 </div>
-                <div class="protocol-card">
-                    <div class="protocol-step">PHASE 02 • TRIAGE</div>
-                    <div class="protocol-name">Sub-45s Interactive Qualification</div>
-                    <p class="protocol-desc">An intelligent SMS and email bridge greets patients while they are still on your website, confirming availability and triaging their clinical needs.</p>
+                <div class="protocol-pane">
+                    <div class="protocol-step-num">02</div>
+                    <div class="protocol-heading">Sub-45s Interactive Triage</div>
+                    <p class="protocol-body">The prospective patient receives an immediate personalized text and email confirming doctor availability and triaging clinical candidacy.</p>
                 </div>
-                <div class="protocol-card">
-                    <div class="protocol-step">PHASE 03 • SYNCHRONIZATION</div>
-                    <div class="protocol-name">Direct Calendar Booking</div>
-                    <p class="protocol-desc">Qualified patients select available appointment slots synced directly to your practice management calendar. Confirmation packets dispatch automatically.</p>
+                <div class="protocol-pane">
+                    <div class="protocol-step-num">03</div>
+                    <div class="protocol-heading">EHR Calendar Sync</div>
+                    <p class="protocol-body">Qualified patients choose an open evaluation time slot synced directly to your practice calendar (Dentrix, Eaglesoft, OpenDental, Calendly).</p>
                 </div>
-                <div class="protocol-card">
-                    <div class="protocol-step">PHASE 04 • ESCALATION</div>
-                    <div class="protocol-name">VIP Staff Notification</div>
-                    <p class="protocol-desc">High-value surgical inquiries (Full Arch, All-on-4) trigger an immediate priority SMS alert to the practice owner and treatment coordinator.</p>
+                <div class="protocol-pane">
+                    <div class="protocol-step-num">04</div>
+                    <div class="protocol-heading">VIP Staff Alert</div>
+                    <p class="protocol-body">High-ticket surgical cases (Full Arch, All-on-4) trigger an immediate priority escalation to your treatment coordinator with complete patient intake details.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 04: Transparent Partnership Specifications -->
-        <section id="specifications" class="section-block" style="border-bottom: none;">
-            <div class="partnership-box">
+        <!-- Section 4: Partnership Terms -->
+        <section id="charter" class="charter-section">
+            <div class="charter-card">
                 <div style="text-align: center;">
-                    <div class="partnership-badge">2026 CLINICAL PARTNER SPECIFICATION</div>
-                    <h2 class="section-title">Transparent, ROI-Guaranteed Terms</h2>
-                    <p class="section-subtitle">
+                    <div class="charter-tag">2026 CLINICAL PRACTICE PARTNERSHIP</div>
+                    <h2 style="font-family: var(--font-serif); font-size: 36px; font-weight: 600; margin-bottom: 8px;">
+                        Transparent Partnership Charter
+                    </h2>
+                    <p style="font-size: 15px; color: var(--ink-secondary);">
                         Securing just one single dental implant patient pays for over two years of our services.
                     </p>
 
-                    <div class="pricing-statement" style="justify-content: center;">
-                        <span class="price-big">$397</span>
-                        <span class="price-tenure">/ month recurring</span>
+                    <div class="charter-price-row" style="justify-content: center;">
+                        <span class="charter-price">$397</span>
+                        <span class="charter-period">/ month retainer</span>
                     </div>
-                    <div class="price-onetime">+ $497 One-Time Implementation & EHR Bridge</div>
+                    <div class="charter-setup">+ $497 One-Time Implementation &amp; EHR Bridge</div>
                 </div>
 
-                <ul class="spec-list">
-                    <li class="spec-item"><span class="spec-mark">✓</span> Sub-45 Second SMS & Email Patient Triage Bridge</li>
-                    <li class="spec-item"><span class="spec-mark">✓</span> Bespoke Clinical Qualification Logic (All-on-4, Veneers, Single Implants)</li>
-                    <li class="spec-item"><span class="spec-mark">✓</span> Two-Way Calendar Integration (Dentrix, Eaglesoft, Calendly, OpenDental)</li>
-                    <li class="spec-item"><span class="spec-mark">✓</span> Real-Time VIP Lead Escalation to Treatment Coordinator</li>
-                    <li class="spec-item"><span class="spec-mark">✓</span> Monthly Executive Speed-to-Lead & Conversion Audit Report</li>
-                    <li class="spec-item"><span class="spec-mark">✓</span> <strong>Zero Lock-in Contract:</strong> Month-to-month partnership, cancel anytime</li>
-                </ul>
+                <table class="deliverables-table">
+                    <tbody>
+                        <tr>
+                            <td>✓</td>
+                            <td>Sub-45 Second SMS &amp; Email Patient Triage Bridge</td>
+                        </tr>
+                        <tr>
+                            <td>✓</td>
+                            <td>Bespoke Clinical Qualification Logic (All-on-4, Single Implants, Veneers)</td>
+                        </tr>
+                        <tr>
+                            <td>✓</td>
+                            <td>Two-Way Practice Calendar Synchronization</td>
+                        </tr>
+                        <tr>
+                            <td>✓</td>
+                            <td>Real-Time VIP Case Alerts to Treatment Coordinator</td>
+                        </tr>
+                        <tr>
+                            <td>✓</td>
+                            <td>Monthly Speed-to-Lead &amp; Conversion Executive Audit</td>
+                        </tr>
+                        <tr>
+                            <td>✓</td>
+                            <td><strong>Zero Lock-in Contract:</strong> Month-to-month terms, cancel anytime with 30-day notice</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <div style="text-align: center;">
-                    <a href="mailto:team@nexuspulsetech.com?subject=Partner%20Onboarding%20Inquiry" class="btn-audit" style="padding: 14px 32px; font-size: 15px;">
+                    <a href="mailto:team@nexuspulsetech.com?subject=Partner%20Onboarding%20Inquiry" class="btn-primary-warm" style="width: 100%; justify-content: center; padding: 14px;">
                         Initiate Practice Onboarding →
                     </a>
                 </div>
@@ -1051,84 +1084,60 @@
         </section>
     </main>
 
-    <!-- Institutional Footer -->
+    <!-- Footer -->
     <footer>
-        <div class="container footer-grid">
+        <div class="container footer-content">
             <div>
-                <strong>NexusPulse Technologies</strong> • Clinical Systems Architecture & Speed-to-Lead Engineering
-                <div style="color: var(--text-muted); margin-top: 4px;">Confidential Technical Lab • Domain: <a href="https://nexuspulsetech.com" style="color: var(--text-secondary);">nexuspulsetech.com</a></div>
+                <strong>NexusPulse Technologies</strong> • Clinical Systems Architecture &amp; Speed-to-Lead Infrastructure
+                <div style="margin-top: 4px;">Confidential Technical Lab • Domain: <a href="https://nexuspulsetech.com" style="color: var(--ink);">nexuspulsetech.com</a></div>
             </div>
-            <div class="footer-links">
+            <div class="footer-legal">
                 <a href="mailto:team@nexuspulsetech.com">team@nexuspulsetech.com</a>
-                <a href="#simulator">Simulator</a>
                 <a href="#ledger">Benchmarks</a>
-                <a href="#specifications">Pricing</a>
+                <a href="#modeling">Economics</a>
+                <a href="#charter">Terms</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simulator logic
-        const scenarios = {
-            allon4: {
-                log: [
-                    "[00:00.00s] Inbound form submission detected (Austin, TX)",
-                    "[00:00.41s] Candidate: Sarah M. (512-555-0199)",
-                    "[00:01.12s] Clinical intent parsed: All-on-4 / Full Arch ($24,000)",
-                    "[00:02.84s] Interactive SMS dispatched (28.4s)"
-                ],
-                inbound: "Hi Sarah, this is the care coordinator at Austin Oral Surgery. I saw you just inquired regarding Full-Arch Implants. We have 2 consultation slots open with Dr. Miller this Thursday at 2:00 PM and 4:30 PM. Would either work for you?",
-                patient: "Thursday at 2:00 PM works perfectly. Do you offer financing for full arch?",
-                confirmed: "Confirmed for Thursday at 2:00 PM! Yes, we offer 0% APR financing through CareCredit & Proceed Finance. Your consultation packet has been prepared and sent to your email."
-            },
-            implant: {
-                log: [
-                    "[00:00.00s] Inbound form submission detected (Dallas, TX)",
-                    "[00:00.32s] Candidate: David R. (214-555-0812)",
-                    "[00:00.95s] Clinical intent parsed: Single Molar Implant ($4,500)",
-                    "[00:02.10s] Interactive SMS dispatched (21.0s)"
-                ],
-                inbound: "Hi David, this is the patient coordinator at Premier Dental. I saw you just requested info on single dental implants. We have an evaluation opening tomorrow at 10:30 AM or Friday at 1:15 PM. Which fits your schedule?",
-                patient: "Friday at 1:15 PM works for me. Is the 3D CT scan included in the consult?",
-                confirmed: "Booked for Friday at 1:15 PM! Yes, your initial consult includes complimentary high-resolution 3D CBCT imaging. See you Friday!"
-            }
+        const simData = {
+            allon4: `<strong>[00:00.32s] Inbound Form Ingested:</strong> Sarah M. (Austin, TX)<br>
+                     <strong>[00:00.84s] Clinical Filter:</strong> All-on-4 Candidate ($24,000)<br>
+                     <strong>[00:02.10s] Triage SMS Dispatched:</strong> Thursday 2:00 PM Consultation offered.<br>
+                     <strong>[00:03.45s] Calendar Status:</strong> Confirmed & Synced to Dr. Miller.`,
+            implant: `<strong>[00:00.28s] Inbound Form Ingested:</strong> David R. (Dallas, TX)<br>
+                      <strong>[00:00.75s] Clinical Filter:</strong> Single Tooth Implant ($4,500)<br>
+                      <strong>[00:01.90s] Triage SMS Dispatched:</strong> Friday 10:30 AM slot offered.<br>
+                      <strong>[00:03.15s] Calendar Status:</strong> Confirmed with 3D CBCT imaging.`
         };
 
-        function setScenario(type) {
-            const btns = document.querySelectorAll('.btn-sim');
+        function swapSim(type) {
+            const btns = document.querySelectorAll('.sim-scenario-btn');
             btns.forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-
-            const s = scenarios[type];
-            const logEl = document.getElementById('terminalLog');
-            logEl.innerHTML = s.log.map(l => `<div><span class="log-ts">${l.slice(0, 11)}</span> ${l.slice(12)}</div>`).join('');
-            
-            document.getElementById('bubbleInbound').innerHTML = s.inbound + '<span class="bubble-time">7:15 PM • Automated</span>';
-            document.getElementById('bubblePatient').innerHTML = s.patient + '<span class="bubble-time" style="color: rgba(255,255,255,0.7);">7:16 PM • Patient</span>';
-            document.getElementById('bubbleConfirmed').innerHTML = s.confirmed + '<span class="bubble-time">7:16 PM • Confirmed & Synced</span>';
+            event.target.closest('.sim-scenario-btn').classList.add('active');
+            document.getElementById('simLog').innerHTML = simData[type];
         }
 
-        // Financial Modeling Logic
-        function recalcLedger() {
-            const lcv = parseInt(document.getElementById('lcvRange').value);
-            const vol = parseInt(document.getElementById('volRange').value);
-            const afterHours = parseInt(document.getElementById('afterHoursRange').value) / 100;
+        function calcSheet() {
+            const lcv = parseInt(document.getElementById('lcv').value);
+            const inq = parseInt(document.getElementById('inq').value);
+            const hrs = parseInt(document.getElementById('hrs').value) / 100;
 
-            document.getElementById('lcvDisplay').innerText = '$' + lcv.toLocaleString();
-            document.getElementById('volDisplay').innerText = vol + ' Inquiries';
-            document.getElementById('afterHoursDisplay').innerText = Math.round(afterHours * 100) + '%';
+            document.getElementById('lcvVal').innerText = '$' + lcv.toLocaleString();
+            document.getElementById('inqVal').innerText = inq + ' Inquiries';
+            document.getElementById('hrsVal').innerText = Math.round(hrs * 100) + '%';
 
-            // Conservative empirical formula:
-            // After hours leads * 35% loss rate due to 14h delay * 12% closing rate on high-ticket
-            const monthlyLostCases = (vol * afterHours) * 0.35 * 0.12;
-            const monthlyLoss = monthlyLostCases * lcv;
+            const afterHoursInq = inq * hrs;
+            const lostCases = afterHoursInq * 0.35 * 0.12;
+            const monthlyLoss = lostCases * lcv;
             const annualLoss = monthlyLoss * 12;
 
-            document.getElementById('lossNum').innerText = '$' + Math.round(annualLoss).toLocaleString();
-            document.getElementById('recoveredCases').innerText = monthlyLostCases.toFixed(1) + ' High-Value Cases / Month';
-            document.getElementById('recoveredDollars').innerText = '$' + Math.round(monthlyLoss).toLocaleString() + ' / month';
+            document.getElementById('lossTotal').innerText = '$' + Math.round(annualLoss).toLocaleString();
+            document.getElementById('monthlyRecov').innerText = '$' + Math.round(monthlyLoss).toLocaleString() + ' / month';
+            document.getElementById('casesRecov').innerText = lostCases.toFixed(1) + ' Cases/mo';
         }
-        recalcLedger();
+        calcSheet();
     </script>
 </body>
 </html>
