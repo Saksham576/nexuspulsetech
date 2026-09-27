@@ -1,2 +1,2 @@
-# nexuspulsetech
-Official Web Presence for NexusPulse Technologies (Autonomous Speed-to-Lead &amp; Patient Triage)
+# nexuspulsetech.com
+NexusPulse Studio — launch films for SaaS & AI startups. Static site on GitHub Pages.

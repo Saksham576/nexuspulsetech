@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /t/
+Sitemap: https://nexuspulsetech.com/sitemap.xml
