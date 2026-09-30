@@ -59,7 +59,9 @@ document.querySelectorAll("form[data-kind]").forEach((form) => {
       form.reset();
       msg.textContent = "Got it — you'll hear from us within 24 hours.";
     } catch {
-      msg.textContent = "Couldn't send. Please email team@nexuspulsetech.com directly.";
+      const body = Object.entries(data).filter(([k]) => !k.startsWith("_")).map(([k, v]) => `${k}: ${v}`).join("\n");
+      const gm = `https://mail.google.com/mail/?view=cm&to=team@nexuspulsetech.com&su=${encodeURIComponent(data._subject)}&body=${encodeURIComponent(body)}`;
+      msg.innerHTML = `Our form is down right now. <a href="${gm}" target="_blank" rel="noopener">Send it via Gmail</a> or email team@nexuspulsetech.com.`;
       if (btn) btn.disabled = false;
     }
   });
